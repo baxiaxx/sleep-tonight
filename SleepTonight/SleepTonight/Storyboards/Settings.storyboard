@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fp8-rR-Zrr">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="DzM-51-hPf">
+            <objects>
+                <viewController id="fp8-rR-Zrr" customClass="SettingsViewController" customModule="SleepTonight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xq9-hp-aZ9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iIS-y5-pyB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-Iu-1pd">
+                                        <rect key="frame" x="15" y="0.0" width="345" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-k6-Gqr">
+                                        <rect key="frame" x="27.5" y="20.5" width="320" height="303"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="554069300.93139398">
+                                            <!--2018-07-23 20:08:20 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="bedtimeValueChanged:" destination="fp8-rR-Zrr" eventType="valueChanged" id="95v-S6-BLd"/>
+                                        </connections>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDK-oB-Omb">
+                                        <rect key="frame" x="15" y="323.5" width="345" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bqW-oO-lzU">
+                                        <rect key="frame" x="27.5" y="344" width="320" height="303"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="554069414.72254002">
+                                            <!--2018-07-23 20:10:14 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uDK-oB-Omb" firstAttribute="height" secondItem="FXi-Iu-1pd" secondAttribute="height" id="6fh-wy-ouE"/>
+                                    <constraint firstAttribute="trailing" secondItem="FXi-Iu-1pd" secondAttribute="trailing" constant="15" id="HAt-mQ-v11"/>
+                                    <constraint firstItem="uDK-oB-Omb" firstAttribute="leading" secondItem="iIS-y5-pyB" secondAttribute="leading" constant="15" id="LaY-7a-w80"/>
+                                    <constraint firstAttribute="trailing" secondItem="uDK-oB-Omb" secondAttribute="trailing" constant="15" id="frY-6c-A7J"/>
+                                    <constraint firstItem="FXi-Iu-1pd" firstAttribute="leading" secondItem="iIS-y5-pyB" secondAttribute="leading" constant="15" id="oIB-at-iLl"/>
+                                    <constraint firstItem="bqW-oO-lzU" firstAttribute="height" secondItem="Wz6-k6-Gqr" secondAttribute="height" id="q63-n2-THJ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="iIS-y5-pyB" secondAttribute="bottom" id="I9o-10-ST2"/>
+                            <constraint firstItem="iIS-y5-pyB" firstAttribute="top" secondItem="fZY-j8-Tn6" secondAttribute="top" id="RKP-7Y-CyF"/>
+                            <constraint firstItem="iIS-y5-pyB" firstAttribute="leading" secondItem="Xq9-hp-aZ9" secondAttribute="leading" id="on1-od-OKW"/>
+                            <constraint firstAttribute="trailing" secondItem="iIS-y5-pyB" secondAttribute="trailing" id="wAn-ya-CiD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fZY-j8-Tn6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="NLl-BR-nTa">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="qaO-as-ant">
+                            <connections>
+                                <segue destination="MKM-bB-kwL" kind="unwind" identifier="done" unwindAction="unwindWithSegue:" id="rPc-xB-Aab"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Fi-6d-iTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MKM-bB-kwL" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="793"/>
+        </scene>
+    </scenes>
+</document>

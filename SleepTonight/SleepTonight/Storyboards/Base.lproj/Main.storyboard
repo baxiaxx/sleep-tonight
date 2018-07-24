@@ -10,72 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
-        <scene sceneID="DzM-51-hPf">
-            <objects>
-                <viewController id="fp8-rR-Zrr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xq9-hp-aZ9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iIS-y5-pyB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-Iu-1pd">
-                                        <rect key="frame" x="15" y="0.0" width="345" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-k6-Gqr">
-                                        <rect key="frame" x="27.5" y="20.5" width="320" height="281"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="554069300.93139398">
-                                            <!--2018-07-23 20:08:20 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDK-oB-Omb">
-                                        <rect key="frame" x="15" y="301.5" width="345" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bqW-oO-lzU">
-                                        <rect key="frame" x="27.5" y="322" width="320" height="281"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="554069414.72254002">
-                                            <!--2018-07-23 20:10:14 +0000-->
-                                        </date>
-                                    </datePicker>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="uDK-oB-Omb" firstAttribute="height" secondItem="FXi-Iu-1pd" secondAttribute="height" id="6fh-wy-ouE"/>
-                                    <constraint firstAttribute="trailing" secondItem="FXi-Iu-1pd" secondAttribute="trailing" constant="15" id="HAt-mQ-v11"/>
-                                    <constraint firstItem="uDK-oB-Omb" firstAttribute="leading" secondItem="iIS-y5-pyB" secondAttribute="leading" constant="15" id="LaY-7a-w80"/>
-                                    <constraint firstAttribute="trailing" secondItem="uDK-oB-Omb" secondAttribute="trailing" constant="15" id="frY-6c-A7J"/>
-                                    <constraint firstItem="FXi-Iu-1pd" firstAttribute="leading" secondItem="iIS-y5-pyB" secondAttribute="leading" constant="15" id="oIB-at-iLl"/>
-                                    <constraint firstItem="bqW-oO-lzU" firstAttribute="height" secondItem="Wz6-k6-Gqr" secondAttribute="height" id="q63-n2-THJ"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="iIS-y5-pyB" secondAttribute="bottom" id="I9o-10-ST2"/>
-                            <constraint firstItem="iIS-y5-pyB" firstAttribute="top" secondItem="fZY-j8-Tn6" secondAttribute="top" id="RKP-7Y-CyF"/>
-                            <constraint firstItem="iIS-y5-pyB" firstAttribute="leading" secondItem="Xq9-hp-aZ9" secondAttribute="leading" id="on1-od-OKW"/>
-                            <constraint firstAttribute="trailing" secondItem="iIS-y5-pyB" secondAttribute="trailing" id="wAn-ya-CiD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fZY-j8-Tn6"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="NLl-BR-nTa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Fi-6d-iTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="844" y="33"/>
-        </scene>
         <!--My Bedtime-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SleepTonight" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SleepTonight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MainView" customModule="SleepTonight" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -117,11 +56,16 @@
                             <constraint firstItem="c38-St-SLy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="bF2-85-2LA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="bedtimeLabel" destination="1nw-Vx-a8X" id="MDH-rx-Ssa"/>
+                            <outlet property="bedtimeReminderLabel" destination="3jm-BM-HbW" id="fp2-Ej-zmY"/>
+                            <outlet property="sleepButton" destination="Nbf-zT-Ea0" id="No4-dO-YVF"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="My Bedtime" id="jIj-zz-rS0">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="ikY-Pr-Oko">
                             <connections>
-                                <segue destination="fp8-rR-Zrr" kind="show" id="w78-4t-Mx9"/>
+                                <segue destination="lg2-zR-q8k" kind="show" id="w78-4t-Mx9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -147,6 +91,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EwQ-eY-eiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-138.40000000000001" y="792.95352323838085"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Ljh-og-X10">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="lg2-zR-q8k" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vd0-0L-hee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="793"/>
         </scene>
     </scenes>
 </document>

@@ -15,12 +15,22 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
 //        CoreDataHelper.reset()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
         let view = self.view as! MainView
         
-        view.bedtimeLabel.text = bedtimes[0].time?.convertToString()
+        if let date = bedtimes[0].time {
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "hh:mm a"
+            let dateString = dateformatter.string(from: date)
+            
+            view.bedtimeLabel.text = dateString
+        } else {
+            print("Bedtime not set")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,6 +49,5 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        bedtimes = CoreDataHelper.retrieveBedtimes()
     }
 }

@@ -14,7 +14,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        CoreDataHelper.reset()
+        bedtimes = CoreDataHelper.retrieveBedtimes()
+        for bedtime in bedtimes {
+            CoreDataHelper.deleteBedtime(bedtime: bedtime)
+        }
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
@@ -22,7 +25,7 @@ class MainViewController: UIViewController {
         
         let view = self.view as! MainView
         
-        print(bedtimes)
-        //view.bedtimeLabel.text = bedtimes[0].bedtime?.convertToString()
+        print(bedtimes[0].time)
+        view.bedtimeLabel.text = bedtimes[0].time?.convertToString()
     }
 }

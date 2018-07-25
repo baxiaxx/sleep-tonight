@@ -11,6 +11,10 @@ class SettingsViewController: UIViewController {
     
     var bedtime: Bedtime?
     
+    var timePicked: Date?
+    
+    @IBOutlet weak var bedtimePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,7 +25,7 @@ class SettingsViewController: UIViewController {
         switch identifier {
         case "done":
             let bedtime = CoreDataHelper.createBedtime()
-            bedtime.time = self.bedtime?.time
+            bedtime.time = timePicked ?? Date()
             
             CoreDataHelper.saveBedtime()
             
@@ -30,14 +34,8 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func bedtimeValueChanged(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        let selectedDate = dateFormatter.string(from: sender.date)
-        print(selectedDate)
-        
-        bedtime?.time = sender.date
-        print(bedtime?.time)
+    @IBAction func bedtimePickerValueChanged(_ sender: UIDatePicker) {
+        timePicked = sender.date
     }
     
 }

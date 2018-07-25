@@ -25,7 +25,7 @@
                                     <!--2018-07-23 20:08:20 +0000-->
                                 </date>
                                 <connections>
-                                    <action selector="bedtimeValueChanged:" destination="fp8-rR-Zrr" eventType="valueChanged" id="95v-S6-BLd"/>
+                                    <action selector="bedtimePickerValueChanged:" destination="fp8-rR-Zrr" eventType="valueChanged" id="T9n-8y-HzE"/>
                                 </connections>
                             </datePicker>
                         </subviews>
@@ -39,6 +39,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bedtimePicker" destination="Wz6-k6-Gqr" id="rQR-CH-YOf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fi-6d-iTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="MKM-bB-kwL" userLabel="Exit" sceneMemberID="exit"/>

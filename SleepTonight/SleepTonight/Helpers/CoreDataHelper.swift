@@ -53,8 +53,4 @@ struct CoreDataHelper {
             return []
         }
     }
-    
-    static func reset() {
-        context.reset()
-    }
 }

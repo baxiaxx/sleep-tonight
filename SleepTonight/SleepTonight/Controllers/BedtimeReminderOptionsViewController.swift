@@ -15,7 +15,8 @@ class BedtimeReminderOptionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var options = ["None", "15 min", "30 min", "45 min", "60 min"]
+    let options = ["None", "15 min", "30 min", "45 min", "60 min"]
+    let timeIntervals: [TimeInterval] = [0.0, 15.0, 30.0, 45.0, 60.0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +36,19 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BedtimeReminderOption", for: indexPath) as! BedtimeReminderOptionsTableViewCell
         
-        cell.optionLabel.text = self.options[indexPath.row]
+        cell.optionLabel.text = options[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        
+        let timeInterval = timeIntervals[indexPath.row]
+        
+        bedtime?.prepTime = timeInterval
+        
+        CoreDataHelper.saveBedtime()
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

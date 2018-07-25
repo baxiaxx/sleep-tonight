@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" title="My Bedtime" id="jIj-zz-rS0">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="ikY-Pr-Oko">
                             <connections>
-                                <segue destination="lg2-zR-q8k" kind="show" id="w78-4t-Mx9"/>
+                                <segue destination="lg2-zR-q8k" kind="show" identifier="displaySettings" id="w78-4t-Mx9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

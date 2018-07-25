@@ -24,8 +24,7 @@ class SettingsViewController: UIViewController {
         
         switch identifier {
         case "done":
-            let bedtime = CoreDataHelper.createBedtime()
-            bedtime.time = timePicked ?? Date()
+            bedtime?.time = timePicked ?? Date()
             
             CoreDataHelper.saveBedtime()
             

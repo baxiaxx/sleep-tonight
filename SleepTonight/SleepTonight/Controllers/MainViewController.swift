@@ -14,18 +14,31 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        CoreDataHelper.reset()
+        
         bedtimes = CoreDataHelper.retrieveBedtimes()
-        for bedtime in bedtimes {
-            CoreDataHelper.deleteBedtime(bedtime: bedtime)
+        
+        let view = self.view as! MainView
+        
+        view.bedtimeLabel.text = bedtimes[0].time?.convertToString()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "displaySettings":
+            let bedtime = bedtimes[0]
+            
+            let destination = segue.destination as! SettingsViewController
+            
+            destination.bedtime = bedtime
+        default:
+            print("Unexpected segue identifier")
         }
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
-        
-        let view = self.view as! MainView
-        
-        print(bedtimes[0].time)
-        view.bedtimeLabel.text = bedtimes[0].time?.convertToString()
     }
 }

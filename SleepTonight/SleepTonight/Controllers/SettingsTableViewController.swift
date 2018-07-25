@@ -26,6 +26,11 @@ class SettingsTableViewController: UITableViewController {
             
             CoreDataHelper.saveBedtime()
             
+        case "displayReminderOptions":
+            let destination = segue.destination as! BedtimeReminderOptionsViewController
+            
+            destination.bedtime = self.bedtime
+            
         default:
             print("Unexpected segue identifier")
         }

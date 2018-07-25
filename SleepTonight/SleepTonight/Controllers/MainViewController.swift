@@ -19,12 +19,12 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
-        
+
         let view = self.view as! MainView
-        
+
         if let date = bedtimes[0].time {
             let time = date.convertToString()
-            
+
             view.bedtimeLabel.text = time
         } else {
             print("Bedtime not set")

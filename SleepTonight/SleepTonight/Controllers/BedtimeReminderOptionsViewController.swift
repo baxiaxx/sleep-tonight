@@ -7,7 +7,11 @@
 
 import UIKit
 
+typealias TimeInterval = Double
+
 class BedtimeReminderOptionsViewController: UIViewController {
+    
+    var bedtime: Bedtime?
     
     @IBOutlet weak var tableView: UITableView!
     

@@ -61,7 +61,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YyA-K1-cb5" kind="show" id="4nF-uE-q2n"/>
+                                            <segue destination="YyA-K1-cb5" kind="show" identifier="displayReminderOptions" id="4nF-uE-q2n"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

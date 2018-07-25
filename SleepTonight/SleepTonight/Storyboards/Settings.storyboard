@@ -42,10 +42,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle=" " id="EsO-9v-5Nn">
+                            <tableViewSection id="EsO-9v-5Nn">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="d47-Kz-XTo">
-                                        <rect key="frame" x="0.0" y="287" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="259" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d47-Kz-XTo" id="d6g-bj-T2h">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -109,7 +109,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ky3-zH-lKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721" y="793"/>
+            <point key="canvasLocation" x="1759" y="816"/>
         </scene>
     </scenes>
 </document>

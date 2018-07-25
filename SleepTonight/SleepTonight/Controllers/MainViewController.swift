@@ -23,11 +23,9 @@ class MainViewController: UIViewController {
         let view = self.view as! MainView
         
         if let date = bedtimes[0].time {
-            let dateformatter = DateFormatter()
-            dateformatter.dateFormat = "hh:mm a"
-            let dateString = dateformatter.string(from: date)
+            let time = date.convertToString()
             
-            view.bedtimeLabel.text = dateString
+            view.bedtimeLabel.text = time
         } else {
             print("Bedtime not set")
         }

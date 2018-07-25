@@ -19,22 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c38-St-SLy">
-                                <rect key="frame" x="22" y="86" width="331" height="561"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nw-Vx-a8X">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="187"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-BM-HbW">
-                                        <rect key="frame" x="0.0" y="187" width="331" height="187"/>
+                                        <rect key="frame" x="0.0" y="201" width="375" height="201"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
-                                        <rect key="frame" x="0.0" y="374" width="331" height="187"/>
+                                        <rect key="frame" x="0.0" y="402" width="375" height="201"/>
                                         <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                         <state key="normal" title="Sleep">
@@ -50,10 +50,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="c38-St-SLy" secondAttribute="bottom" constant="20" id="EyL-UH-O2S"/>
-                            <constraint firstAttribute="trailing" secondItem="c38-St-SLy" secondAttribute="trailing" constant="22" id="Fi6-OR-bNA"/>
-                            <constraint firstItem="c38-St-SLy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="Sqz-n4-v5h"/>
-                            <constraint firstItem="c38-St-SLy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="bF2-85-2LA"/>
+                            <constraint firstAttribute="bottom" secondItem="c38-St-SLy" secondAttribute="bottom" id="EyL-UH-O2S"/>
+                            <constraint firstAttribute="trailing" secondItem="c38-St-SLy" secondAttribute="trailing" id="Fi6-OR-bNA"/>
+                            <constraint firstItem="c38-St-SLy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Sqz-n4-v5h"/>
+                            <constraint firstItem="c38-St-SLy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bF2-85-2LA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>

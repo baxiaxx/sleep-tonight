@@ -61,7 +61,7 @@
                     <navigationItem key="navigationItem" title="Bedtime Reminder" id="Kkj-kk-LTD">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jr4-7R-RLD">
                             <connections>
-                                <segue destination="mii-HE-ieg" kind="unwind" identifier="doneWithReminder" unwindAction="unwindWithSegue:" id="let-EV-oDv"/>
+                                <segue destination="mii-HE-ieg" kind="unwind" identifier="doneWithReminderOptions" unwindAction="unwindWithSegue:" id="let-EV-oDv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

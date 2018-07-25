@@ -1,19 +1,17 @@
 //
-//  SettingsViewController.swift
+//  SettingsTableViewController.swift
 //  SleepTonight
 //
-//  Created by Binjia Chen on 7/23/18.
+//  Created by Binjia Chen on 7/25/18.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsTableViewController: UITableViewController {
     
     var bedtime: Bedtime?
     
     var timePicked: Date?
-    
-    @IBOutlet weak var bedtimePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +21,7 @@ class SettingsViewController: UIViewController {
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
-        case "done":
+        case "doneWithSettings":
             bedtime?.time = timePicked ?? Date()
             
             CoreDataHelper.saveBedtime()

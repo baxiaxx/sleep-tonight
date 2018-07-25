@@ -10,6 +10,7 @@
 		8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */; };
 		8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */; };
 		8F7567BC2108FCF500581DEB /* BedtimeReminderOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7567BB2108FCF500581DEB /* BedtimeReminderOptions.storyboard */; };
+		8F7567BE210914DE00581DEB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */; };
 		8FADCA842106427E0002C028 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA832106427E0002C028 /* AppDelegate.swift */; };
 		8FADCA892106427E0002C028 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FADCA872106427E0002C028 /* Main.storyboard */; };
 		8FADCA8C2106427E0002C028 /* SleepTonight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA8A2106427E0002C028 /* SleepTonight.xcdatamodeld */; };
@@ -17,7 +18,6 @@
 		8FADCA912106427F0002C028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FADCA8F2106427F0002C028 /* LaunchScreen.storyboard */; };
 		8FADCA9D21067B440002C028 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FADCA9C21067B440002C028 /* Settings.storyboard */; };
 		8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA9E21067C340002C028 /* MainViewController.swift */; };
-		8FADCAA121067C7F0002C028 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA021067C7F0002C028 /* SettingsViewController.swift */; };
 		8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA3210790D30002C028 /* CoreDataHelper.swift */; };
 		8FADCAA7210795D90002C028 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA6210795D90002C028 /* MainView.swift */; };
 		8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB83680210797FE00D2184D /* Date+convertToString.swift */; };
@@ -27,6 +27,7 @@
 		8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeReminderOptionsViewController.swift; sourceTree = "<group>"; };
 		8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeReminderOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		8F7567BB2108FCF500581DEB /* BedtimeReminderOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BedtimeReminderOptions.storyboard; sourceTree = "<group>"; };
+		8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8FADCA802106427E0002C028 /* SleepTonight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTonight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FADCA832106427E0002C028 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FADCA882106427E0002C028 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		8FADCA922106427F0002C028 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FADCA9C21067B440002C028 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		8FADCA9E21067C340002C028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8FADCAA021067C7F0002C028 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8FADCAA3210790D30002C028 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		8FADCAA6210795D90002C028 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8FB83680210797FE00D2184D /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				8FADCA9E21067C340002C028 /* MainViewController.swift */,
-				8FADCAA021067C7F0002C028 /* SettingsViewController.swift */,
 				8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */,
+				8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 				8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */,
 				8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */,
 				8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */,
+				8F7567BE210914DE00581DEB /* SettingsTableViewController.swift in Sources */,
 				8FADCA842106427E0002C028 /* AppDelegate.swift in Sources */,
 				8FADCA8C2106427E0002C028 /* SleepTonight.xcdatamodeld in Sources */,
-				8FADCAA121067C7F0002C028 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

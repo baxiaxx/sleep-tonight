@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         case "displaySettings":
             let bedtime = bedtimes[0]
             
-            let destination = segue.destination as! SettingsViewController
+            let destination = segue.destination as! SettingsTableViewController
             
             destination.bedtime = bedtime
         default:

@@ -45,7 +45,6 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         
         let timeInterval = timeIntervals[indexPath.row]
-        
         bedtime?.prepTime = timeInterval
         
         CoreDataHelper.saveBedtime()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -17,6 +18,13 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let bedtime = CoreDataHelper.createBedtime()
+//        bedtime.time = Date()
+//        bedtime.isSleeping = false
+//        bedtime.prepTime = 60.0
+//
+//        CoreDataHelper.saveBedtime()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +70,31 @@ class MainViewController: UIViewController {
             sleepButton.setTitle("RESET", for: .normal)
         } else {
             sleepButton.setTitle("SLEEP", for: .normal)
+        }
+        
+        
+        
+        let content = UNMutableNotificationContent()
+        content.title = "pressed"
+        content.subtitle = "subtitle"
+        content.body = "notif body"
+//        content.badge = 1
+        
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+        
+        dateComponents.hour = 12
+        dateComponents.minute = 0
+        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "someString", content: content, trigger: trigger)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+            if error != nil {
+                print("Something went wrong with notifications")
+            }
         }
     }
     

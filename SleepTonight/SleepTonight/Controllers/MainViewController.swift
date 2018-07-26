@@ -55,6 +55,18 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func sleepButtonTapped(_ sender: Any) {
+        let bedtime = bedtimes[0]
+        
+        bedtime.isSleeping = !bedtime.isSleeping
+        
+        if bedtime.isSleeping {
+            sleepButton.setTitle("RESET", for: .normal)
+        } else {
+            sleepButton.setTitle("SLEEP", for: .normal)
+        }
+    }
+    
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
     }
 }

@@ -17,8 +17,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        CoreDataHelper.reset()
     }
     
     override func viewWillAppear(_ animated: Bool) {

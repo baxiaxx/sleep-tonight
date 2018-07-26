@@ -53,15 +53,4 @@ struct CoreDataHelper {
             return []
         }
     }
-    
-    static func reset() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Bedtime")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try context.execute(deleteRequest)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-    }
 }

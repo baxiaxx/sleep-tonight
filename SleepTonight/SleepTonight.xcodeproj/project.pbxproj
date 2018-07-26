@@ -19,7 +19,6 @@
 		8FADCA9D21067B440002C028 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FADCA9C21067B440002C028 /* Settings.storyboard */; };
 		8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA9E21067C340002C028 /* MainViewController.swift */; };
 		8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA3210790D30002C028 /* CoreDataHelper.swift */; };
-		8FADCAA7210795D90002C028 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA6210795D90002C028 /* MainView.swift */; };
 		8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB83680210797FE00D2184D /* Date+convertToString.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		8FADCA9C21067B440002C028 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		8FADCA9E21067C340002C028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FADCAA3210790D30002C028 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		8FADCAA6210795D90002C028 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8FB83680210797FE00D2184D /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +115,6 @@
 		8FADCAA5210795C10002C028 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8FADCAA6210795D90002C028 /* MainView.swift */,
 				8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */,
 			);
 			path = Views;
@@ -206,7 +203,6 @@
 				8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */,
 				8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */,
 				8F8DFBEA2109275F00EFA5E9 /* SleepTonight.xcdatamodeld in Sources */,
-				8FADCAA7210795D90002C028 /* MainView.swift in Sources */,
 				8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */,
 				8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */,
 				8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */,

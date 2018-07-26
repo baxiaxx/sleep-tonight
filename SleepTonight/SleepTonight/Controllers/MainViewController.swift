@@ -11,6 +11,10 @@ class MainViewController: UIViewController {
     
     var bedtimes = [Bedtime]()
     
+    @IBOutlet weak var bedtimeLabel: UILabel!
+    @IBOutlet weak var bedtimeReminderLabel: UILabel!
+    @IBOutlet weak var sleepButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,18 +28,16 @@ class MainViewController: UIViewController {
     }
     
     func configureMainView() {
-        let view = self.view as! MainView
-        
         if let date = bedtimes[0].time {
             let time = date.convertToString()
             
-            view.bedtimeLabel.text = time
+            bedtimeLabel.text = time
         } else {
             print("Bedtime not set")
         }
         
         let prepTime = String(bedtimes[0].prepTime)
-        view.bedtimeReminderLabel.text = "\(prepTime) min"
+        bedtimeReminderLabel.text = "\(prepTime) min"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

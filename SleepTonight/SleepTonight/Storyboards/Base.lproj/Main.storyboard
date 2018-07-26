@@ -66,11 +66,6 @@
                             <constraint firstItem="c38-St-SLy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bF2-85-2LA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outlet property="bedtimeLabel" destination="1nw-Vx-a8X" id="MDH-rx-Ssa"/>
-                            <outlet property="bedtimeReminderLabel" destination="3jm-BM-HbW" id="fp2-Ej-zmY"/>
-                            <outlet property="sleepButton" destination="Nbf-zT-Ea0" id="No4-dO-YVF"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="My Bedtime" id="jIj-zz-rS0">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="ikY-Pr-Oko">
@@ -79,6 +74,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bedtimeLabel" destination="1nw-Vx-a8X" id="rXT-pU-83t"/>
+                        <outlet property="bedtimeReminderLabel" destination="3jm-BM-HbW" id="K1Y-9H-1R7"/>
+                        <outlet property="sleepButton" destination="Nbf-zT-Ea0" id="xdY-xS-kzD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

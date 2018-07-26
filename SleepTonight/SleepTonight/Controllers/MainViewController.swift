@@ -23,18 +23,18 @@ class MainViewController: UIViewController {
 //        bedtime.time = Date()
 //        bedtime.isSleeping = false
 //        bedtime.prepTime = 60.0
-//
 //        CoreDataHelper.saveBedtime()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
-        configureMainView()
+        configureMainViewWith(bedtime: bedtimes[0])
+        bedtimeNotificationSetup(bedtime: bedtimes[0])
     }
     
-    func configureMainView() {
-        if let date = bedtimes[0].time {
+    func configureMainViewWith(bedtime: Bedtime) {
+        if let date = bedtime.time {
             let time = date.convertToString()
             
             bedtimeLabel.text = time
@@ -42,8 +42,29 @@ class MainViewController: UIViewController {
             print("Bedtime not set")
         }
         
-        let prepTime = String(bedtimes[0].prepTime)
+        let prepTime = String(bedtime.prepTime)
         bedtimeReminderLabel.text = "\(prepTime) min"
+    }
+    
+    func bedtimeNotificationSetup(bedtime: Bedtime) {
+        guard let date = bedtime.time else { return }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "IT'S YO BEDTIME"
+        content.body = "Go sleep buddy."
+        content.sound = UNNotificationSound.default()
+        
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "Bedtime", content: content, trigger: trigger)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+            if error != nil {
+                print("Something went wrong with notifications")
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,31 +91,6 @@ class MainViewController: UIViewController {
             sleepButton.setTitle("RESET", for: .normal)
         } else {
             sleepButton.setTitle("SLEEP", for: .normal)
-        }
-        
-        
-        
-        let content = UNMutableNotificationContent()
-        content.title = "pressed"
-        content.subtitle = "subtitle"
-        content.body = "notif body"
-//        content.badge = 1
-        
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-        
-        dateComponents.hour = 12
-        dateComponents.minute = 0
-        
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: "someString", content: content, trigger: trigger)
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request) { (error) in
-            if error != nil {
-                print("Something went wrong with notifications")
-            }
         }
     }
     

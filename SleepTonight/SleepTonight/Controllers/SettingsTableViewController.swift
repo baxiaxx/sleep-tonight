@@ -13,8 +13,13 @@ class SettingsTableViewController: UITableViewController {
     
     var timePicked: Date?
     
+    @IBOutlet weak var bedtimePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let time = bedtime?.time else { return }
+        bedtimePicker.date = time
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

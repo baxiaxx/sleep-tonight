@@ -30,8 +30,8 @@
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-k6-Gqr">
                                                     <rect key="frame" x="27" y="0.0" width="320" height="248"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="554069300.93139398">
-                                                        <!--2018-07-23 20:08:20 +0000-->
+                                                    <date key="date" timeIntervalSinceReferenceDate="554069480.93139398">
+                                                        <!--2018-07-23 20:11:20 +0000-->
                                                     </date>
                                                     <connections>
                                                         <action selector="bedtimePickerValueChanged:" destination="WJO-PD-xeg" eventType="valueChanged" id="NL1-Vw-wRK"/>
@@ -79,6 +79,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bedtimePicker" destination="Wz6-k6-Gqr" id="KA3-wo-ldL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQA-3a-U85" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rR1-ev-YZa" userLabel="Exit" sceneMemberID="exit"/>

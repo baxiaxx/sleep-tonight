@@ -40,9 +40,11 @@ class MainViewController: UIViewController {
         
         configureMainViewWith(bedtime: bedtime)
         
-        setupReminderNotification(bedtime: bedtime)
-        setupBedtimeNotification(bedtime: bedtime)
-        setupPersistentNotifications(bedtime: bedtime)
+        if !bedtime.isSleeping {
+            setupReminderNotification(bedtime: bedtime)
+            setupBedtimeNotification(bedtime: bedtime)
+            setupPersistentNotifications(bedtime: bedtime)
+        }
     }
     
     func configureMainViewWith(bedtime: Bedtime) {
@@ -111,7 +113,7 @@ class MainViewController: UIViewController {
     func setupPersistentNotifications(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
         
-        if Date() > time {
+        if Date() > time { // fix statement
             let content = UNMutableNotificationContent()
             content.title = "Go sleep!!"
             content.body = "It's past your bedtime!"
@@ -158,8 +160,6 @@ class MainViewController: UIViewController {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         } else {
             sleepButton.setTitle("SLEEP", for: .normal)
-            
-            let bedtime = bedtimes[0]
             
             setupReminderNotification(bedtime: bedtime)
             setupBedtimeNotification(bedtime: bedtime)

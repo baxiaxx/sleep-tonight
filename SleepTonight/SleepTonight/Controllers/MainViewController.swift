@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
         let bedtime = bedtimes[0]
         
         configureMainViewWith(bedtime: bedtime)
+        
         setupReminderNotification(bedtime: bedtime)
         setupBedtimeNotification(bedtime: bedtime)
         setupPersistentNotifications(bedtime: bedtime)
@@ -103,6 +104,23 @@ class MainViewController: UIViewController {
     
     func setupPersistentNotifications(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
+        
+        if Date() > time {
+            let content = UNMutableNotificationContent()
+            content.title = "Go sleep!!"
+            content.body = "It's past your bedtime!"
+            content.sound = UNNotificationSound.default()
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+            let request = UNNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
+            
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.add(request) { (error) in
+                if let error = error {
+                    print("Error in persistent notification: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

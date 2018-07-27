@@ -60,77 +60,59 @@ class MainViewController: UIViewController {
         bedtimeReminderLabel.text = "\(prepTime) min"
     }
     
-    func setupBedtimeNotification(bedtime: Bedtime) {
-        guard let date = bedtime.time else { return }
-        
+    func createNotificationContent(title: String, body: String) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
-        content.title = "IT'S YO BEDTIME"
-        content.body = "Go sleep buddy."
+        content.title = title
+        content.body = body
         content.sound = UNNotificationSound.default()
         
-        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
+        return content
+    }
+    
+    func createNotificationRequest(identifier: String, content: UNMutableNotificationContent, trigger: UNNotificationTrigger) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["Bedtime"])
-        
-        let request = UNNotificationRequest(identifier: "Bedtime", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request) { (error) in
             if let error = error {
-                print("Error in bedtime notification: \(error.localizedDescription)")
+                print("Notification error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func setupBedtimeNotification(bedtime: Bedtime) {
+        guard let date = bedtime.time else { return }
+        
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
+        
+        let content = createNotificationContent(title: "IT'S YO BEDTIME", body: "Go sleep buddy.")
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        createNotificationRequest(identifier: "Bedtime", content: content, trigger: trigger)
     }
     
     func setupReminderNotification(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
         
         let date = time - bedtime.prepTime
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Get ready to sleep!"
-        content.body = "Now!!!"
-        content.sound = UNNotificationSound.default()
-        
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
+        let content = createNotificationContent(title: "Get ready to sleep!", body: "Now!!!")
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["BedtimeReminder"])
-        
-        let request = UNNotificationRequest(identifier: "BedtimeReminder", content: content, trigger: trigger)
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request) { (error) in
-            if let error = error {
-                print("Error in reminder notification: \(error.localizedDescription)")
-            }
-        }
+        createNotificationRequest(identifier: "BedtimeReminder", content: content, trigger: trigger)
     }
     
     func setupPersistentNotifications(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
         
         if Date() > time { // fix statement
-            let content = UNMutableNotificationContent()
-            content.title = "Go sleep!!"
-            content.body = "It's past your bedtime!"
-            content.sound = UNNotificationSound.default()
-            
+            let content = createNotificationContent(title: "Go sleep!!", body: "It's past your bedtime!")
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
             
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["PersistentReminder"])
-            
-            let request = UNNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
-            
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.add(request) { (error) in
-                if let error = error {
-                    print("Error in persistent notification: \(error.localizedDescription)")
-                }
-            }
+            createNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
         }
     }
     

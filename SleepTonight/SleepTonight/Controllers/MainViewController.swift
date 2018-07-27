@@ -19,6 +19,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if let error = error {
+                print("Error in notification permission/authorization: \(error.localizedDescription)")
+            }
+        }
+        
 //        let bedtime = CoreDataHelper.createBedtime()
 //        bedtime.time = Date()
 //        bedtime.isSleeping = false
@@ -29,9 +36,12 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
-        configureMainViewWith(bedtime: bedtimes[0])
-        setupReminderNotification(bedtime: bedtimes[0])
-        setupBedtimeNotification(bedtime: bedtimes[0])
+        let bedtime = bedtimes[0]
+        
+        configureMainViewWith(bedtime: bedtime)
+        setupReminderNotification(bedtime: bedtime)
+        setupBedtimeNotification(bedtime: bedtime)
+        setupPersistentNotifications(bedtime: bedtime)
     }
     
     func configureMainViewWith(bedtime: Bedtime) {
@@ -62,8 +72,8 @@ class MainViewController: UIViewController {
         
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request) { (error) in
-            if error != nil {
-                print("Something went wrong with notifications")
+            if let error = error {
+                print("Error in bedtime notification: \(error.localizedDescription)")
             }
         }
     }
@@ -85,10 +95,14 @@ class MainViewController: UIViewController {
         
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request) { (error) in
-            if error != nil {
-                print("Something went wrong with notifications")
+            if let error = error {
+                print("Error in reminder notification: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func setupPersistentNotifications(bedtime: Bedtime) {
+        guard let time = bedtime.time else { return }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

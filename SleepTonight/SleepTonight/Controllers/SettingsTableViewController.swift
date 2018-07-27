@@ -31,7 +31,9 @@ class SettingsTableViewController: UITableViewController {
         
         switch identifier {
         case "doneWithSettings":
-            bedtime?.time = timePicked ?? Date()
+            guard let timePicked = timePicked else { return }
+            
+            bedtime?.time = timePicked
             
             CoreDataHelper.saveBedtime()
             

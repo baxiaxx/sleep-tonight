@@ -39,7 +39,6 @@ class SettingsTableViewController: UITableViewController {
             
         case "displayReminderOptions":
             let destination = segue.destination as! BedtimeReminderOptionsViewController
-            
             destination.bedtime = self.bedtime
             
         default:

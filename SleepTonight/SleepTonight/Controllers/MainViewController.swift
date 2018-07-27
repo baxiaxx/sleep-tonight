@@ -41,9 +41,7 @@ class MainViewController: UIViewController {
         configureMainViewWith(bedtime: bedtime)
         
         if !bedtime.isSleeping {
-            setupReminderNotification(bedtime: bedtime)
-            setupBedtimeNotification(bedtime: bedtime)
-            setupPersistentNotifications(bedtime: bedtime)
+            setupNotifications(bedtime: bedtime)
         }
     }
     
@@ -58,6 +56,12 @@ class MainViewController: UIViewController {
         
         let prepTime = String(Int(bedtime.prepTime / 60))
         bedtimeReminderLabel.text = "\(prepTime) min"
+    }
+    
+    func setupNotifications(bedtime: Bedtime) {
+        setupReminderNotification(bedtime: bedtime)
+        setupBedtimeNotification(bedtime: bedtime)
+        setupPersistentNotifications(bedtime: bedtime)
     }
     
     func createNotificationContent(title: String, body: String) -> UNMutableNotificationContent {
@@ -143,9 +147,7 @@ class MainViewController: UIViewController {
         } else {
             sleepButton.setTitle("SLEEP", for: .normal)
             
-            setupReminderNotification(bedtime: bedtime)
-            setupBedtimeNotification(bedtime: bedtime)
-            setupPersistentNotifications(bedtime: bedtime)
+            setupNotifications(bedtime: bedtime)
         }
     }
     

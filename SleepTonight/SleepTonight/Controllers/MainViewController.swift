@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
             print("Bedtime not set")
         }
         
-        let prepTime = String(bedtime.prepTime)
+        let prepTime = String(Int(bedtime.prepTime / 60))
         bedtimeReminderLabel.text = "\(prepTime) min"
     }
     
@@ -69,10 +69,6 @@ class MainViewController: UIViewController {
     }
     
     func setupReminderNotification(bedtime: Bedtime) {
-        ////////////////////////////////////////////////////////////////////////////////
-        //////////////////MAKE SURE THIS WORKS//////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
         guard let time = bedtime.time else { return }
         
         let date = time - bedtime.prepTime

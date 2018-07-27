@@ -20,6 +20,7 @@
 		8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA9E21067C340002C028 /* MainViewController.swift */; };
 		8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA3210790D30002C028 /* CoreDataHelper.swift */; };
 		8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB83680210797FE00D2184D /* Date+convertToString.swift */; };
+		8FE588D9210AB9AA000F708D /* TimeInterval+convertToMinutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE588D8210AB9AA000F708D /* TimeInterval+convertToMinutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8FADCA9E21067C340002C028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FADCAA3210790D30002C028 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		8FB83680210797FE00D2184D /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
+		8FE588D8210AB9AA000F708D /* TimeInterval+convertToMinutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+convertToMinutes.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8FB83680210797FE00D2184D /* Date+convertToString.swift */,
+				8FE588D8210AB9AA000F708D /* TimeInterval+convertToMinutes.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FE588D9210AB9AA000F708D /* TimeInterval+convertToMinutes.swift in Sources */,
 				8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */,
 				8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */,
 				8F8DFBEA2109275F00EFA5E9 /* SleepTonight.xcdatamodeld in Sources */,

@@ -13,12 +13,14 @@ class BedtimeReminderOptionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let options: [String : TimeInterval] = ["None" : 0.0,
-                                            "1 min" : 1.0,
-                                            "15 min" : 15.0,
-                                            "30 min" : 30.0,
-                                            "45 min" : 45.0,
-                                            "60 min" : 60.0]
+    let options: [String : TimeInterval] = ["None" : 0.0.convertToMinutes(),
+                                            "1 min" : 1.0.convertToMinutes(),
+                                            "5 min" : 5.0.convertToMinutes(),
+                                            "10 min" : 10.0.convertToMinutes(),
+                                            "15 min" : 15.0.convertToMinutes(),
+                                            "30 min" : 30.0.convertToMinutes(),
+                                            "45 min" : 45.0.convertToMinutes(),
+                                            "60 min" : 60.0.convertToMinutes()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

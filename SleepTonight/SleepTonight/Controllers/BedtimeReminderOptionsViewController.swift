@@ -42,7 +42,7 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
         
         let option = options[indexPath.row]
         
-        cell.optionLabel.text = Array(option!.keys).first
+        cell.optionLabel.text = option!.keys.first
         
         if bedtime?.prepTime == option!.values.first {
             cell.accessoryType = .checkmark
@@ -57,7 +57,7 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         
         let option = options[indexPath.row]
-        let timeInterval = Array(option!.values).first
+        let timeInterval = option!.values.first
         bedtime?.prepTime = timeInterval!
         
         CoreDataHelper.saveBedtime()

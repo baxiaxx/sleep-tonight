@@ -30,7 +30,8 @@ class MainViewController: UIViewController {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
         configureMainViewWith(bedtime: bedtimes[0])
-        bedtimeNotificationSetup(bedtime: bedtimes[0])
+        setupReminderNotification(bedtime: bedtimes[0])
+        setupBedtimeNotification(bedtime: bedtimes[0])
     }
     
     func configureMainViewWith(bedtime: Bedtime) {
@@ -46,7 +47,7 @@ class MainViewController: UIViewController {
         bedtimeReminderLabel.text = "\(prepTime) min"
     }
     
-    func bedtimeNotificationSetup(bedtime: Bedtime) {
+    func setupBedtimeNotification(bedtime: Bedtime) {
         guard let date = bedtime.time else { return }
         
         let content = UNMutableNotificationContent()
@@ -58,6 +59,33 @@ class MainViewController: UIViewController {
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: "Bedtime", content: content, trigger: trigger)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+            if error != nil {
+                print("Something went wrong with notifications")
+            }
+        }
+    }
+    
+    func setupReminderNotification(bedtime: Bedtime) {
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////MAKE SURE THIS WORKS//////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        guard let time = bedtime.time else { return }
+        
+        let date = time - bedtime.prepTime
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Get ready to sleep!"
+        content.body = "Now!!!"
+        content.sound = UNNotificationSound.default()
+        
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "BedtimeReminder", content: content, trigger: trigger)
         
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request) { (error) in

@@ -18,6 +18,10 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureDatePicker()
+    }
+    
+    func configureDatePicker() {
         guard let time = bedtime?.time else { return }
         bedtimePicker.date = time
     }

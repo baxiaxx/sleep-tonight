@@ -69,6 +69,9 @@ class MainViewController: UIViewController {
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["Bedtime"])
+        
         let request = UNNotificationRequest(identifier: "Bedtime", content: content, trigger: trigger)
         
         let notificationCenter = UNUserNotificationCenter.current()
@@ -92,6 +95,9 @@ class MainViewController: UIViewController {
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["BedtimeReminder"])
+        
         let request = UNNotificationRequest(identifier: "BedtimeReminder", content: content, trigger: trigger)
         
         let notificationCenter = UNUserNotificationCenter.current()
@@ -112,6 +118,9 @@ class MainViewController: UIViewController {
             content.sound = UNNotificationSound.default()
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+            
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["PersistentReminder"])
+            
             let request = UNNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
             
             let notificationCenter = UNUserNotificationCenter.current()
@@ -145,8 +154,16 @@ class MainViewController: UIViewController {
         
         if bedtime.isSleeping {
             sleepButton.setTitle("RESET", for: .normal)
+            
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         } else {
             sleepButton.setTitle("SLEEP", for: .normal)
+            
+            let bedtime = bedtimes[0]
+            
+            setupReminderNotification(bedtime: bedtime)
+            setupBedtimeNotification(bedtime: bedtime)
+            setupPersistentNotifications(bedtime: bedtime)
         }
     }
     

@@ -13,14 +13,14 @@ class BedtimeReminderOptionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let options: [String : TimeInterval] = ["None" : 0.0 * 60,
-                                            "1 min" : 1.0 * 60,
-                                            "5 min" : 5.0 * 60,
-                                            "10 min" : 10.0 * 60,
-                                            "15 min" : 15.0 * 60,
-                                            "30 min" : 30.0 * 60,
-                                            "45 min" : 45.0 * 60,
-                                            "60 min" : 60.0 * 60]
+    let options: [Int: [String: TimeInterval]] = [0: ["None" : 0.0 * 60],
+                                                  1: ["1 min" : 1.0 * 60],
+                                                  2: ["5 min" : 5.0 * 60],
+                                                  3: ["10 min" : 10.0 * 60],
+                                                  4: ["15 min" : 15.0 * 60],
+                                                  5: ["30 min" : 30.0 * 60],
+                                                  6: ["45 min" : 45.0 * 60],
+                                                  7: ["60 min" : 60.0 * 60]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +40,11 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BedtimeReminderOption", for: indexPath) as! BedtimeReminderOptionsTableViewCell
         
-        let option = Array(options)[indexPath.row]
+        let option = options[indexPath.row]
         
-        cell.optionLabel.text = option.key
+        cell.optionLabel.text = Array(option!.keys).first
         
-        if bedtime?.prepTime == option.value {
+        if bedtime?.prepTime == option!.values.first {
             cell.accessoryType = .checkmark
             cell.isSelected = true
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
@@ -56,10 +56,9 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         
-        let option = Array(options)[indexPath.row]
-        
-        let timeInterval = option.value
-        bedtime?.prepTime = timeInterval
+        let option = options[indexPath.row]
+        let timeInterval = Array(option!.values).first
+        bedtime?.prepTime = timeInterval!
         
         CoreDataHelper.saveBedtime()
     }

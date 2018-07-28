@@ -12,6 +12,8 @@ class MainViewController: UIViewController {
     
     var bedtimes = [Bedtime]()
     
+    var timer = Timer()
+    
     @IBOutlet weak var bedtimeLabel: UILabel!
     @IBOutlet weak var bedtimeReminderLabel: UILabel!
     @IBOutlet weak var sleepButton: UIButton!
@@ -31,6 +33,10 @@ class MainViewController: UIViewController {
 //        bedtime.isSleeping = false
 //        bedtime.prepTime = 60.0
 //        CoreDataHelper.saveBedtime()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,9 +65,15 @@ class MainViewController: UIViewController {
     }
     
     func setupNotifications(bedtime: Bedtime) {
+        guard let time = bedtime.time else { return }
+        
         setupReminderNotification(bedtime: bedtime)
         setupBedtimeNotification(bedtime: bedtime)
-        setupPersistentNotifications(bedtime: bedtime)
+        
+        timer.invalidate()
+        
+        timer = Timer(fireAt: time, interval: 60, target: self, selector: #selector(setupPersistentNotifications), userInfo: bedtime, repeats: false)
+        RunLoop.main.add(timer, forMode: .commonModes)
     }
     
     func createNotificationContent(title: String, body: String) -> UNMutableNotificationContent {
@@ -109,15 +121,11 @@ class MainViewController: UIViewController {
         createNotificationRequest(identifier: "BedtimeReminder", content: content, trigger: trigger)
     }
     
-    func setupPersistentNotifications(bedtime: Bedtime) {
-        guard let time = bedtime.time else { return }
+    @objc func setupPersistentNotifications() {
+        let content = createNotificationContent(title: "Go sleep!!", body: "It's past your bedtime!")
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
         
-        if Date() > time { // fix statement
-            let content = createNotificationContent(title: "Go sleep!!", body: "It's past your bedtime!")
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-            
-            createNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
-        }
+        createNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -144,6 +152,7 @@ class MainViewController: UIViewController {
             sleepButton.setTitle("RESET", for: .normal)
             
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            timer.invalidate()
         } else {
             sleepButton.setTitle("SLEEP", for: .normal)
             

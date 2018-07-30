@@ -53,9 +53,7 @@ class MainViewController: UIViewController {
     
     func configureMainViewWith(bedtime: Bedtime) {
         if let date = bedtime.time {
-            let time = date.convertToString()
-            
-            bedtimeLabel.text = time
+            bedtimeLabel.text = date.convertToString()
         } else {
             print("Bedtime not set")
         }
@@ -76,37 +74,17 @@ class MainViewController: UIViewController {
         RunLoop.main.add(timer, forMode: .commonModes)
     }
     
-    func createNotificationContent(title: String, body: String) -> UNMutableNotificationContent {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = UNNotificationSound.default()
-        
-        return content
-    }
-    
-    func createNotificationRequest(identifier: String, content: UNMutableNotificationContent, trigger: UNNotificationTrigger) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
-        
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request) { (error) in
-            if let error = error {
-                print("Notification error: \(error.localizedDescription)")
-            }
-        }
-    }
-    
     func setupBedtimeNotification(bedtime: Bedtime) {
         guard let date = bedtime.time else { return }
         
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        let content = createNotificationContent(title: "IT'S YO BEDTIME", body: "Go sleep buddy.")
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let title = "IT'S YO BEDTIME"
+        let body = "Go sleep buddy."
+        let identifier = "Bedtime"
         
-        createNotificationRequest(identifier: "Bedtime", content: content, trigger: trigger)
+        let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
+        notification.createNotification()
     }
     
     func setupReminderNotification(bedtime: Bedtime) {
@@ -115,17 +93,22 @@ class MainViewController: UIViewController {
         let date = time - bedtime.prepTime
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        let content = createNotificationContent(title: "Get ready to sleep!", body: "Now!!!")
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let title = "Get ready to sleep!"
+        let body = "Now!!!"
+        let identifier = "BedtimeReminder"
         
-        createNotificationRequest(identifier: "BedtimeReminder", content: content, trigger: trigger)
+        let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
+        notification.createNotification()
     }
     
     @objc func setupPersistentNotifications() {
-        let content = createNotificationContent(title: "Go sleep!!", body: "It's past your bedtime!")
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let title = "Go sleep!!"
+        let body = "It's past your bedtime!"
+        let identifier = "PersistentReminder"
+        let timeInterval: TimeInterval = 60
         
-        createNotificationRequest(identifier: "PersistentReminder", content: content, trigger: trigger)
+        let notification = Notification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
+        notification.createNotification()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

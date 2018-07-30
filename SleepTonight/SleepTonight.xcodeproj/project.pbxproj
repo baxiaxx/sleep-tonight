@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */; };
 		8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */; };
+		8F6119BA210F76550009EC1C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6119B9210F76550009EC1C /* Notification.swift */; };
 		8F7567BC2108FCF500581DEB /* BedtimeReminderOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7567BB2108FCF500581DEB /* BedtimeReminderOptions.storyboard */; };
 		8F7567BE210914DE00581DEB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */; };
 		8F8DFBEA2109275F00EFA5E9 /* SleepTonight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F8DFBE82109275F00EFA5E9 /* SleepTonight.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeReminderOptionsViewController.swift; sourceTree = "<group>"; };
 		8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeReminderOptionsTableViewCell.swift; sourceTree = "<group>"; };
+		8F6119B9210F76550009EC1C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		8F7567BB2108FCF500581DEB /* BedtimeReminderOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BedtimeReminderOptions.storyboard; sourceTree = "<group>"; };
 		8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8F8DFBE92109275F00EFA5E9 /* SleepTonight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepTonight.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F6119B8210F76400009EC1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F6119B9210F76550009EC1C /* Notification.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8FADCA772106427E0002C028 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		8FADCA822106427E0002C028 /* SleepTonight */ = {
 			isa = PBXGroup;
 			children = (
+				8F6119B8210F76400009EC1C /* Models */,
 				8FB8367F210797EE00D2184D /* Extensions */,
 				8FADCAA5210795C10002C028 /* Views */,
 				8FADCAA2210790C30002C028 /* Helpers */,
@@ -202,6 +213,7 @@
 			files = (
 				8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */,
 				8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */,
+				8F6119BA210F76550009EC1C /* Notification.swift in Sources */,
 				8F8DFBEA2109275F00EFA5E9 /* SleepTonight.xcdatamodeld in Sources */,
 				8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */,
 				8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */,

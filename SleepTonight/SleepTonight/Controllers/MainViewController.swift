@@ -42,6 +42,10 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
+        setCurrentBedtimeDate(bedtime: bedtimes[0])
+        CoreDataHelper.saveBedtime()
+        bedtimes = CoreDataHelper.retrieveBedtimes()
+        
         let bedtime = bedtimes[0]
         
         configureMainViewWith(bedtime: bedtime)
@@ -70,7 +74,12 @@ class MainViewController: UIViewController {
         
         timer.invalidate()
         
-        timer = Timer(fireAt: time, interval: 60, target: self, selector: #selector(setupPersistentNotifications), userInfo: bedtime, repeats: false)
+        if time < Date() {
+            return
+        }
+
+        timer = Timer(fireAt: time, interval: 5.0, target: self, selector: #selector(setupPersistentNotifications), userInfo: nil, repeats: false)
+        timer.tolerance = 10.0
         RunLoop.main.add(timer, forMode: .commonModes)
     }
     
@@ -79,8 +88,8 @@ class MainViewController: UIViewController {
         
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        let title = "IT'S YO BEDTIME"
-        let body = "Go sleep buddy."
+        let title = "Bedtime"
+        let body = "It's time to sleep."
         let identifier = "Bedtime"
         
         let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
@@ -93,8 +102,8 @@ class MainViewController: UIViewController {
         let date = time - bedtime.prepTime
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        let title = "Get ready to sleep!"
-        let body = "Now!!!"
+        let title = "Bedtime Reminder"
+        let body = "\(String(Int(bedtime.prepTime / 60))) min before bedtime."
         let identifier = "BedtimeReminder"
         
         let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
@@ -102,13 +111,28 @@ class MainViewController: UIViewController {
     }
     
     @objc func setupPersistentNotifications() {
+        print("timer called")
+        
         let title = "Go sleep!!"
-        let body = "It's past your bedtime!"
+        let body = "It's past your bedtime."
         let identifier = "PersistentReminder"
-        let timeInterval: TimeInterval = 60
+        let timeInterval: TimeInterval = 60.0
         
         let notification = Notification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
         notification.createNotification()
+    }
+    
+    func setCurrentBedtimeDate(bedtime: Bedtime) {
+        guard var time = bedtime.time else { return }
+        
+        let cal = Calendar.current
+        
+        let currentDate = Date()
+        let currentComponents = cal.dateComponents([.year, .month, .day], from: currentDate)
+        
+        time = cal.date(bySetting: .year, value: currentComponents.year!, of: time)!
+        time = cal.date(bySetting: .month, value: currentComponents.month!, of: time)!
+        time = cal.date(bySetting: .day, value: currentComponents.day!, of: time)!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

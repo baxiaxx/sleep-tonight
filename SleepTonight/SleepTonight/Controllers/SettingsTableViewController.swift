@@ -31,7 +31,18 @@ class SettingsTableViewController: UITableViewController {
         
         switch identifier {
         case "doneWithSettings":
-            guard let timePicked = timePicked else { return }
+            guard var timePicked = timePicked else { return }
+            
+            let cal = Calendar.current
+            let components = cal.dateComponents([.hour, .minute], from: timePicked)
+            
+            let currentDate = Date()
+            let currentComponents = cal.dateComponents([.year, .month, .day], from: currentDate)
+            
+            timePicked = cal.date(bySetting: .year, value: currentComponents.year!, of: timePicked)!
+            timePicked = cal.date(bySetting: .month, value: currentComponents.month!, of: timePicked)!
+            timePicked = cal.date(bySetting: .day, value: currentComponents.day!, of: timePicked)!
+            timePicked = cal.date(bySettingHour: components.hour!, minute: components.minute!, second: 0, of: timePicked)!
             
             bedtime?.time = timePicked
             

@@ -42,14 +42,9 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
-        setCurrentBedtimeDate(bedtime: bedtimes[0])
-        CoreDataHelper.saveBedtime()
-        bedtimes = CoreDataHelper.retrieveBedtimes()
-        
         let bedtime = bedtimes[0]
         
-        configureMainViewWith(bedtime: bedtime)
-        
+        configureMainViewWith(bedtime: bedtime)        
         if !bedtime.isSleeping {
             setupNotifications(bedtime: bedtime)
         }
@@ -120,19 +115,6 @@ class MainViewController: UIViewController {
         
         let notification = Notification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
         notification.createNotification()
-    }
-    
-    func setCurrentBedtimeDate(bedtime: Bedtime) {
-        guard var time = bedtime.time else { return }
-        
-        let cal = Calendar.current
-        
-        let currentDate = Date()
-        let currentComponents = cal.dateComponents([.year, .month, .day], from: currentDate)
-        
-        time = cal.date(bySetting: .year, value: currentComponents.year!, of: time)!
-        time = cal.date(bySetting: .month, value: currentComponents.month!, of: time)!
-        time = cal.date(bySetting: .day, value: currentComponents.day!, of: time)!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

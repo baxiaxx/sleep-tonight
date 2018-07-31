@@ -18,28 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c38-St-SLy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIv-WJ-lix">
+                                <rect key="frame" x="24" y="114" width="327" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nw-Vx-a8X">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                                        <rect key="frame" x="22" y="9" width="283" height="62.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="centerY" secondItem="RIv-WJ-lix" secondAttribute="centerY" id="1HD-XD-uDc"/>
+                                    <constraint firstAttribute="trailing" secondItem="1nw-Vx-a8X" secondAttribute="trailing" constant="22" id="2zf-HU-CN1"/>
+                                    <constraint firstAttribute="height" constant="80" id="CJo-M5-DEH"/>
+                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="leading" secondItem="RIv-WJ-lix" secondAttribute="leading" constant="22" id="XDN-en-yT7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8lQ-jV-e22">
+                                <rect key="frame" x="24" y="218" width="327" height="161"/>
+                                <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4j-Xo-1Xh">
-                                        <rect key="frame" x="0.0" y="62.5" width="375" height="20.5"/>
+                                        <rect key="frame" x="22" y="70.5" width="283" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime Reminder:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-jy-qrT">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="223" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-BM-HbW">
-                                                <rect key="frame" x="300" y="0.0" width="75" height="20.5"/>
+                                                <rect key="frame" x="223" y="0.0" width="60" height="20.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="aNp-EF-2av"/>
+                                                    <constraint firstAttribute="width" constant="60" id="Ilf-LB-oyo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -47,31 +58,45 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
-                                        <rect key="frame" x="0.0" y="83" width="375" height="520"/>
-                                        <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                        <state key="normal" title="Sleep">
-                                            <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sleepButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7B-2c-kp6"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="f4j-Xo-1Xh" firstAttribute="centerY" secondItem="8lQ-jV-e22" secondAttribute="centerY" id="AUD-gu-U4y"/>
+                                    <constraint firstItem="f4j-Xo-1Xh" firstAttribute="leading" secondItem="8lQ-jV-e22" secondAttribute="leading" constant="22" id="BsJ-0l-0Ka"/>
+                                    <constraint firstAttribute="trailing" secondItem="f4j-Xo-1Xh" secondAttribute="trailing" constant="22" id="LxD-x8-GJH"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
+                                <rect key="frame" x="24" y="403" width="327" height="240"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="5Qv-hc-vc2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <state key="normal" title="SLEEP">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sleepButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7B-2c-kp6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="c38-St-SLy" secondAttribute="bottom" id="EyL-UH-O2S"/>
-                            <constraint firstAttribute="trailing" secondItem="c38-St-SLy" secondAttribute="trailing" id="Fi6-OR-bNA"/>
-                            <constraint firstItem="c38-St-SLy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Sqz-n4-v5h"/>
-                            <constraint firstItem="c38-St-SLy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bF2-85-2LA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RIv-WJ-lix" secondAttribute="trailing" constant="24" id="8hD-xO-Gbu"/>
+                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="top" secondItem="8lQ-jV-e22" secondAttribute="bottom" constant="24" id="COh-g7-Xcl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nbf-zT-Ea0" secondAttribute="trailing" constant="24" id="EyT-ri-A52"/>
+                            <constraint firstItem="8lQ-jV-e22" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="bottom" constant="24" id="GYd-bf-ElG"/>
+                            <constraint firstItem="8lQ-jV-e22" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="VTi-io-2FT"/>
+                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="W6h-Ke-Z1w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8lQ-jV-e22" secondAttribute="trailing" constant="24" id="WJG-Zp-aIh"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="lxm-L3-YOY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nbf-zT-Ea0" secondAttribute="bottom" constant="24" id="o0f-5q-Xyt"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="rKu-jL-svS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Bedtime" id="jIj-zz-rS0">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="ikY-Pr-Oko">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ikY-Pr-Oko">
                             <connections>
                                 <segue destination="lg2-zR-q8k" kind="show" identifier="displaySettings" id="w78-4t-Mx9"/>
                             </connections>

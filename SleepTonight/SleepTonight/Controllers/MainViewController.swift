@@ -46,7 +46,10 @@ class MainViewController: UIViewController {
         
         configureMainViewWith(bedtime: bedtime)
         
-        if !bedtime.isSleeping {
+        if bedtime.isSleeping {
+            sleepButton.setTitle("RESET", for: .normal)
+        } else {
+            sleepButton.setTitle("SLEEP", for: .normal)
             setupNotifications(bedtime: bedtime)
         }
     }

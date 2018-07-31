@@ -22,18 +22,20 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func configureDatePicker() {
-        guard let time = bedtime?.time else { return }
+        guard let bedtime = self.bedtime else { return }
+        guard let time = bedtime.time else { return }
         bedtimePicker.date = time
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
+        guard let bedtime = self.bedtime else { return }
         
         switch identifier {
         case "doneWithSettings":
             guard let timePicked = timePicked else { return }
             
-            bedtime?.time = timePicked
+            bedtime.time = timePicked
             
             CoreDataHelper.saveBedtime()
             

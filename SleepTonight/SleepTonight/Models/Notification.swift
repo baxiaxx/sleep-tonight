@@ -8,13 +8,13 @@
 import Foundation
 import UserNotifications
 
-class Notification {
+struct Notification {
     
     let title: String
     let body: String
     let identifier: String
-    let dateMatching: DateComponents?
-    let timeInterval: TimeInterval?
+    let dateMatching: DateComponents
+    let timeInterval: TimeInterval
     let trigger: UNNotificationTrigger
     
     init(title: String, body: String, identifier: String, dateMatching: DateComponents) {
@@ -22,9 +22,10 @@ class Notification {
         self.body = body
         self.identifier = identifier
         self.dateMatching = dateMatching
-        self.timeInterval = nil
         
-        self.trigger = UNCalendarNotificationTrigger(dateMatching: self.dateMatching!, repeats: true)
+        self.timeInterval = 0
+        
+        self.trigger = UNCalendarNotificationTrigger(dateMatching: self.dateMatching, repeats: true)
     }
     
     init(title: String, body: String, identifier: String, timeInterval: TimeInterval) {
@@ -32,9 +33,10 @@ class Notification {
         self.body = body
         self.identifier = identifier
         self.timeInterval = timeInterval
-        self.dateMatching = nil
         
-        self.trigger = UNTimeIntervalNotificationTrigger(timeInterval: self.timeInterval!, repeats: true)
+        self.dateMatching = DateComponents()
+        
+        self.trigger = UNTimeIntervalNotificationTrigger(timeInterval: self.timeInterval, repeats: true)
     }
     
     func createNotification() {

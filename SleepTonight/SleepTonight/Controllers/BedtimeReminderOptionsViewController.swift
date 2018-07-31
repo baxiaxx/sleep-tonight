@@ -40,11 +40,12 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BedtimeReminderOption", for: indexPath) as! BedtimeReminderOptionsTableViewCell
         
-        let option = options[indexPath.row]
+        guard let bedtime = self.bedtime else { return cell }
+        guard let option = options[indexPath.row] else { return cell }
         
-        cell.optionLabel.text = option!.keys.first
+        cell.optionLabel.text = option.keys.first
         
-        if bedtime?.prepTime == option!.values.first {
+        if bedtime.prepTime == option.values.first {
             cell.accessoryType = .checkmark
             cell.isSelected = true
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
@@ -54,11 +55,13 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let bedtime = self.bedtime else { return }
+        
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         
-        let option = options[indexPath.row]
-        let timeInterval = option!.values.first
-        bedtime?.prepTime = timeInterval!
+        guard let option = options[indexPath.row] else { return }
+        guard let timeInterval = option.values.first else { return }
+        bedtime.prepTime = timeInterval
         
         CoreDataHelper.saveBedtime()
     }

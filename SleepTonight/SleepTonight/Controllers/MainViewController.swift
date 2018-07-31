@@ -47,12 +47,49 @@ class MainViewController: UIViewController {
         configureMainViewWith(bedtime: bedtime)
         
         if bedtime.isSleeping {
-            sleepButton.setTitle("RESET", for: .normal)
+            sleepButton.setTitle(Constants.Button.afterSleep, for: .normal)
         } else {
-            sleepButton.setTitle("SLEEP", for: .normal)
+            sleepButton.setTitle(Constants.Button.beforeSleep, for: .normal)
             setupNotifications(bedtime: bedtime)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "displaySettings":
+            let bedtime = bedtimes[0]
+            
+            let destination = segue.destination as? SettingsTableViewController
+            
+            destination?.bedtime = bedtime
+        default:
+            print("Unexpected segue identifier")
+        }
+    }
+    
+    @IBAction func sleepButtonTapped(_ sender: Any) {
+        let bedtime = bedtimes[0]
+        
+        bedtime.isSleeping = !bedtime.isSleeping
+        
+        if bedtime.isSleeping {
+            sleepButton.setTitle(Constants.Button.afterSleep, for: .normal)
+            
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            timer.invalidate()
+        } else {
+            sleepButton.setTitle(Constants.Button.beforeSleep, for: .normal)
+            
+            setupNotifications(bedtime: bedtime)
+        }
+    }
+    
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+    }
+    
+    // MARK: - Functions
     
     func configureMainViewWith(bedtime: Bedtime) {
         if let date = bedtime.time {
@@ -76,7 +113,7 @@ class MainViewController: UIViewController {
         if !bedtimeIsGreaterThanTime(time: time) {
             return
         }
-
+        
         timer = Timer(fireAt: time, interval: 5.0, target: self, selector: #selector(setupPersistentNotifications), userInfo: nil, repeats: false)
         timer.tolerance = 10.0
         RunLoop.main.add(timer, forMode: .commonModes)
@@ -97,7 +134,7 @@ class MainViewController: UIViewController {
     
     func setupReminderNotification(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
-
+        
         let date = time - bedtime.prepTime
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
@@ -126,48 +163,18 @@ class MainViewController: UIViewController {
         let currentDate = Date()
         let currentComponents = cal.dateComponents([.hour, .minute], from: currentDate)
         
-        if components.hour! > currentComponents.hour! {
+        guard let hour = components.hour,
+            let minute = components.minute,
+            let currentHour = currentComponents.hour,
+            let currentMinute = currentComponents.minute else { return false }
+        
+        if hour > currentHour {
             return true
         }
-        if components.hour! == currentComponents.hour! && components.minute! > currentComponents.minute! {
+        if hour == currentHour && minute > currentMinute {
             return true
         }
         
         return false
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        
-        switch identifier {
-        case "displaySettings":
-            let bedtime = bedtimes[0]
-            
-            let destination = segue.destination as! SettingsTableViewController
-            
-            destination.bedtime = bedtime
-        default:
-            print("Unexpected segue identifier")
-        }
-    }
-    
-    @IBAction func sleepButtonTapped(_ sender: Any) {
-        let bedtime = bedtimes[0]
-        
-        bedtime.isSleeping = !bedtime.isSleeping
-        
-        if bedtime.isSleeping {
-            sleepButton.setTitle("RESET", for: .normal)
-            
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            timer.invalidate()
-        } else {
-            sleepButton.setTitle("SLEEP", for: .normal)
-            
-            setupNotifications(bedtime: bedtime)
-        }
-    }
-    
-    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
     }
 }

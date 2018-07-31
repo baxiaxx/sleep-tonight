@@ -44,7 +44,8 @@ class MainViewController: UIViewController {
         
         let bedtime = bedtimes[0]
         
-        configureMainViewWith(bedtime: bedtime)        
+        configureMainViewWith(bedtime: bedtime)
+        
         if !bedtime.isSleeping {
             setupNotifications(bedtime: bedtime)
         }
@@ -69,7 +70,7 @@ class MainViewController: UIViewController {
         
         timer.invalidate()
         
-        if time < Date() {
+        if !bedtimeIsGreaterThanTime(time: time) {
             return
         }
 
@@ -84,7 +85,7 @@ class MainViewController: UIViewController {
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         let title = "Bedtime"
-        let body = "It's time to sleep."
+        let body = "Tap for more reminders."
         let identifier = "Bedtime"
         
         let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
@@ -93,7 +94,7 @@ class MainViewController: UIViewController {
     
     func setupReminderNotification(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
-        
+
         let date = time - bedtime.prepTime
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
@@ -106,8 +107,6 @@ class MainViewController: UIViewController {
     }
     
     @objc func setupPersistentNotifications() {
-        print("timer called")
-        
         let title = "Go sleep!!"
         let body = "It's past your bedtime."
         let identifier = "PersistentReminder"
@@ -115,6 +114,23 @@ class MainViewController: UIViewController {
         
         let notification = Notification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
         notification.createNotification()
+    }
+    
+    func bedtimeIsGreaterThanTime(time: Date) -> Bool{
+        let cal = Calendar.current
+        let components = cal.dateComponents([.hour, .minute], from: time)
+        
+        let currentDate = Date()
+        let currentComponents = cal.dateComponents([.hour, .minute], from: currentDate)
+        
+        if components.hour! > currentComponents.hour! {
+            return true
+        }
+        if components.hour! == currentComponents.hour! && components.minute! > currentComponents.minute! {
+            return true
+        }
+        
+        return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

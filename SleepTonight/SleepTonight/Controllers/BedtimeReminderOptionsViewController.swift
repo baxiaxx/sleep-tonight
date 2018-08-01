@@ -72,5 +72,4 @@ extension BedtimeReminderOptionsViewController: UITableViewDataSource {
 }
 
 extension BedtimeReminderOptionsViewController: UITableViewDelegate {
-    
 }

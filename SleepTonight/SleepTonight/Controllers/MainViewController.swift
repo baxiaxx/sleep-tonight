@@ -36,11 +36,13 @@ class MainViewController: UIViewController {
             }
         }
         
-//        let bedtime = CoreDataHelper.createBedtime()
-//        bedtime.time = Date()
-//        bedtime.isSleeping = false
-//        bedtime.prepTime = 60.0
-//        CoreDataHelper.saveBedtime()
+        if !isNotFirstLaunch() {
+            let bedtime = CoreDataHelper.createBedtime()
+            bedtime.time = Date()
+            bedtime.isSleeping = false
+            bedtime.prepTime = 60.0
+            CoreDataHelper.saveBedtime()
+        }
         
         setTheme(isLight: false)
     }
@@ -57,9 +59,9 @@ class MainViewController: UIViewController {
         setupView(bedtime: bedtime)
         
         if bedtime.isSleeping {
-            sleepButton.setTitle(Constants.Button.afterSleep, for: .normal)
+            sleepButton.setTitle(Constants.ButtonText.afterSleep, for: .normal)
         } else {
-            sleepButton.setTitle(Constants.Button.beforeSleep, for: .normal)
+            sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
             setupNotifications(bedtime: bedtime)
         }
     }
@@ -85,13 +87,13 @@ class MainViewController: UIViewController {
         bedtime.isSleeping = !bedtime.isSleeping
         
         if bedtime.isSleeping {
-            sleepButton.setTitle(Constants.Button.afterSleep, for: .normal)
+            sleepButton.setTitle(Constants.ButtonText.afterSleep, for: .normal)
             setTheme(isLight: true)
             
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             timer.invalidate()
         } else {
-            sleepButton.setTitle(Constants.Button.beforeSleep, for: .normal)
+            sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
             setTheme(isLight: false)
             
             setupNotifications(bedtime: bedtime)
@@ -117,12 +119,13 @@ class MainViewController: UIViewController {
     func setupNotifications(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
         
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        timer.invalidate()
+        
         setupReminderNotification(bedtime: bedtime)
         setupBedtimeNotification(bedtime: bedtime)
         
-        timer.invalidate()
-        
-        if !bedtimeIsGreaterThanTime(time: time) {
+        if !bedtimeIsGreaterThanCurrentTime(bedtime: time) {
             return
         }
         
@@ -134,7 +137,7 @@ class MainViewController: UIViewController {
     func setupBedtimeNotification(bedtime: Bedtime) {
         guard let date = bedtime.time else { return }
         
-        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
         
         let title = "Bedtime"
         let body = "Tap for more reminders."
@@ -168,9 +171,9 @@ class MainViewController: UIViewController {
         notification.createNotification()
     }
     
-    func bedtimeIsGreaterThanTime(time: Date) -> Bool{
+    func bedtimeIsGreaterThanCurrentTime(bedtime: Date) -> Bool{
         let cal = Calendar.current
-        let components = cal.dateComponents([.hour, .minute], from: time)
+        let components = cal.dateComponents([.hour, .minute], from: bedtime)
         
         let currentDate = Date()
         let currentComponents = cal.dateComponents([.hour, .minute], from: currentDate)
@@ -188,6 +191,17 @@ class MainViewController: UIViewController {
         }
         
         return false
+    }
+    
+    func isNotFirstLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        
+        if let _ = defaults.string(forKey: Constants.Defaults.isNotFirstLaunch) {
+            return true
+        } else {
+            defaults.set(true, forKey: Constants.Defaults.isNotFirstLaunch)
+            return false
+        }
     }
     
     func setTheme(isLight: Bool) {

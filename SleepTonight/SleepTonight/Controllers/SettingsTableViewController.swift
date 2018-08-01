@@ -28,8 +28,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        guard let bedtime = self.bedtime else { return }
+        guard let identifier = segue.identifier,
+            let bedtime = self.bedtime else { return }
         
         switch identifier {
         case "doneWithSettings":

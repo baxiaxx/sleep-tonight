@@ -9,9 +9,13 @@ import Foundation
 
 struct Constants {
     
-    struct Button {
+    struct ButtonText {
         static let beforeSleep = "SLEEP"
-        static let afterSleep = "RESET"
+        static let afterSleep = "WAKE UP"
+    }
+    
+    struct Defaults {
+        static let isNotFirstLaunch = "isNotFirstLaunch"
     }
     
 }

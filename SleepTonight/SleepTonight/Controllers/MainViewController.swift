@@ -114,6 +114,26 @@ class MainViewController: UIViewController {
         
         let prepTime = String(Int(bedtime.prepTime / 60))
         reminderAmountLabel.text = "\(prepTime) min"
+        
+        reminderView.backgroundColor = UIColor(white: 1, alpha: 0.1)
+        
+        sleepButton.layer.cornerRadius = 8
+        sleepButton.layer.masksToBounds = true
+    }
+    
+    func setTheme(isLight: Bool) {
+        let theme = isLight ? ColorTheme.light : ColorTheme.dark
+        
+        view.backgroundColor = theme.backgroundColor
+        
+        bedtimeLabel.textColor = theme.primaryTextColor
+        
+        reminderView.backgroundColor = theme.secondaryColor
+        
+        reminderLabel.textColor = theme.secondaryTextColor
+        reminderAmountLabel.textColor = theme.secondaryTextColor
+        
+        sleepButton.backgroundColor = theme.accentColor
     }
     
     func setupNotifications(bedtime: Bedtime) {
@@ -202,19 +222,5 @@ class MainViewController: UIViewController {
             defaults.set(true, forKey: Constants.Defaults.isNotFirstLaunch)
             return false
         }
-    }
-    
-    func setTheme(isLight: Bool) {
-        let theme = isLight ? ColorTheme.light : ColorTheme.dark
-        
-        view.backgroundColor = theme.backgroundColor
-        
-        bedtimeLabel.textColor = theme.primaryTextColor
-        
-        reminderView.backgroundColor = theme.secondaryColor
-        reminderLabel.textColor = theme.secondaryTextColor
-        reminderAmountLabel.textColor = theme.secondaryTextColor
-        
-        sleepButton.backgroundColor = theme.accentColor
     }
 }

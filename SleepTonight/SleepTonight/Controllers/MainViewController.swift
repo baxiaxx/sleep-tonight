@@ -11,11 +11,19 @@ import UserNotifications
 class MainViewController: UIViewController {
     
     var bedtimes = [Bedtime]()
-    
     var timer = Timer()
+    var isDefaultStatusBar = true
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isDefaultStatusBar ? .lightContent : .default
+    }
     
     @IBOutlet weak var bedtimeLabel: UILabel!
-    @IBOutlet weak var bedtimeReminderLabel: UILabel!
+    
+    @IBOutlet weak var reminderView: UIView!
+    @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var reminderAmountLabel: UILabel!
+    
     @IBOutlet weak var sleepButton: UIButton!
     
     override func viewDidLoad() {
@@ -33,6 +41,8 @@ class MainViewController: UIViewController {
 //        bedtime.isSleeping = false
 //        bedtime.prepTime = 60.0
 //        CoreDataHelper.saveBedtime()
+        
+        setTheme(isLight: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,7 +54,7 @@ class MainViewController: UIViewController {
         
         let bedtime = bedtimes[0]
         
-        configureMainViewWith(bedtime: bedtime)
+        setupView(bedtime: bedtime)
         
         if bedtime.isSleeping {
             sleepButton.setTitle(Constants.Button.afterSleep, for: .normal)
@@ -76,11 +86,13 @@ class MainViewController: UIViewController {
         
         if bedtime.isSleeping {
             sleepButton.setTitle(Constants.Button.afterSleep, for: .normal)
+            setTheme(isLight: true)
             
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             timer.invalidate()
         } else {
             sleepButton.setTitle(Constants.Button.beforeSleep, for: .normal)
+            setTheme(isLight: false)
             
             setupNotifications(bedtime: bedtime)
         }
@@ -91,7 +103,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Functions
     
-    func configureMainViewWith(bedtime: Bedtime) {
+    func setupView(bedtime: Bedtime) {
         if let date = bedtime.time {
             bedtimeLabel.text = date.convertToString()
         } else {
@@ -99,7 +111,7 @@ class MainViewController: UIViewController {
         }
         
         let prepTime = String(Int(bedtime.prepTime / 60))
-        bedtimeReminderLabel.text = "\(prepTime) min"
+        reminderAmountLabel.text = "\(prepTime) min"
     }
     
     func setupNotifications(bedtime: Bedtime) {
@@ -176,5 +188,19 @@ class MainViewController: UIViewController {
         }
         
         return false
+    }
+    
+    func setTheme(isLight: Bool) {
+        let theme = isLight ? ColorTheme.light : ColorTheme.dark
+        
+        view.backgroundColor = theme.backgroundColor
+        
+        bedtimeLabel.textColor = theme.primaryTextColor
+        
+        reminderView.backgroundColor = theme.secondaryColor
+        reminderLabel.textColor = theme.secondaryTextColor
+        reminderAmountLabel.textColor = theme.secondaryTextColor
+        
+        sleepButton.backgroundColor = theme.accentColor
     }
 }

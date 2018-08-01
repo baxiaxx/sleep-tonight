@@ -15,6 +15,7 @@
 		8F8606672111129800D606AB /* UIColor+ST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8606662111129800D606AB /* UIColor+ST.swift */; };
 		8F86066A2111232200D606AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8606692111232200D606AB /* Constants.swift */; };
 		8F8DFBEA2109275F00EFA5E9 /* SleepTonight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F8DFBE82109275F00EFA5E9 /* SleepTonight.xcdatamodeld */; };
+		8F8FFB8121122138001920A5 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8FFB8021122138001920A5 /* ColorTheme.swift */; };
 		8FADCA842106427E0002C028 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA832106427E0002C028 /* AppDelegate.swift */; };
 		8FADCA892106427E0002C028 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FADCA872106427E0002C028 /* Main.storyboard */; };
 		8FADCA8E2106427F0002C028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FADCA8D2106427F0002C028 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		8F8606662111129800D606AB /* UIColor+ST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ST.swift"; sourceTree = "<group>"; };
 		8F8606692111232200D606AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F8DFBE92109275F00EFA5E9 /* SleepTonight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepTonight.xcdatamodel; sourceTree = "<group>"; };
+		8F8FFB8021122138001920A5 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		8FADCA802106427E0002C028 /* SleepTonight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTonight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FADCA832106427E0002C028 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FADCA882106427E0002C028 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				8F6119B9210F76550009EC1C /* Notification.swift */,
+				8F8FFB8021122138001920A5 /* ColorTheme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */,
 				8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */,
 				8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */,
+				8F8FFB8121122138001920A5 /* ColorTheme.swift in Sources */,
 				8F7567BE210914DE00581DEB /* SettingsTableViewController.swift in Sources */,
 				8FADCA842106427E0002C028 /* AppDelegate.swift in Sources */,
 			);

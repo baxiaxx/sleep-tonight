@@ -29,4 +29,24 @@ extension UIColor {
         return UIColor(named: "stMidnightBlue")!
     }
     
+    static var stCider: UIColor {
+        return UIColor(named: "stCider")!
+    }
+    
+    static var stNavy: UIColor {
+        return UIColor(named: "stNavy")!
+    }
+    
+    static var stSkyBlue: UIColor {
+        return UIColor(named: "stSkyBlue")!
+    }
+    
+    static var stSoothingBlue: UIColor {
+        return UIColor(named: "stSoothingBlue")!
+    }
+    
+    static var stWarmBeige: UIColor {
+        return UIColor(named: "stWarmBeige")!
+    }
+    
 }

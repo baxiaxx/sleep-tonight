@@ -69,8 +69,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
                                 <rect key="frame" x="24" y="374" width="327" height="269"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                <state key="normal" title="SLEEP">
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="I'M GOING TO BED">
                                     <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>

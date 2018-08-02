@@ -10,8 +10,8 @@ import Foundation
 struct Constants {
     
     struct ButtonText {
-        static let beforeSleep = "SLEEP"
-        static let afterSleep = "WAKE UP"
+        static let beforeSleep = "I'M GOING TO BED"
+        static let afterSleep = "SET ALARM"
     }
     
     struct Defaults {

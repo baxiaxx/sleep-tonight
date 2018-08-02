@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-    var bedtime: Bedtime?
+    weak var bedtime: Bedtime?
     
     var timePicked: Date?
     
@@ -18,10 +18,6 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDatePicker()
-    }
-    
-    func configureDatePicker() {
         guard let bedtime = bedtime,
             let time = bedtime.time else { return }
         bedtimePicker.date = time

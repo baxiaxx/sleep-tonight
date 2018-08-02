@@ -43,8 +43,6 @@ class MainViewController: UIViewController {
             bedtime.prepTime = 60.0
             CoreDataHelper.saveBedtime()
         }
-        
-        setTheme(isLight: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,9 +58,22 @@ class MainViewController: UIViewController {
         
         if bedtime.isSleeping {
             sleepButton.setTitle(Constants.ButtonText.afterSleep, for: .normal)
+            setTheme(isLight: true)
         } else {
             sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
+            setTheme(isLight: false)
             setupNotifications(bedtime: bedtime)
+        }
+    }
+    
+    func isNotFirstLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        
+        if let _ = defaults.string(forKey: Constants.Defaults.isNotFirstLaunch) {
+            return true
+        } else {
+            defaults.set(true, forKey: Constants.Defaults.isNotFirstLaunch)
+            return false
         }
     }
     
@@ -137,7 +148,7 @@ class MainViewController: UIViewController {
     }
     
     func setupNotifications(bedtime: Bedtime) {
-        guard let time = bedtime.time else { return }
+//        guard let time = bedtime.time else { return }
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 //        timer.invalidate()
@@ -146,10 +157,10 @@ class MainViewController: UIViewController {
         setupBedtimeNotification(bedtime: bedtime)
         setupPersistentNotifications(bedtime: bedtime)
         
-        if !bedtimeIsGreaterThanCurrentTime(bedtime: time) {
-            return
-        }
-        
+//        if !bedtimeIsGreaterThanCurrentTime(bedtime: time) {
+//            return
+//        }
+//
 //        timer = Timer(fireAt: time, interval: 5.0, target: self, selector: #selector(setupPersistentNotifications), userInfo: nil, repeats: false)
 //        timer.tolerance = 10.0
 //        RunLoop.main.add(timer, forMode: .commonModes)
@@ -158,10 +169,10 @@ class MainViewController: UIViewController {
     func setupBedtimeNotification(bedtime: Bedtime) {
         guard let date = bedtime.time else { return }
         
-        let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         let title = "Bedtime"
-        let body = "Tap for more reminders."
+        let body = "You should probably go sleep now."
         let identifier = "Bedtime"
         
         let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
@@ -175,7 +186,7 @@ class MainViewController: UIViewController {
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         let title = "Bedtime Reminder"
-        let body = "\(String(Int(bedtime.prepTime / 60))) min before bedtime."
+        let body = "\(String(Int(bedtime.prepTime / 60))) min until bedtime."
         let identifier = "BedtimeReminder"
         
         let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)
@@ -183,10 +194,10 @@ class MainViewController: UIViewController {
     }
     
     @objc func setupPersistentNotifications(bedtime: Bedtime) {
-        guard let date = bedtime.time else { return }
+        guard let time = bedtime.time else { return }
         
-        let title = "Go sleep!!"
-        let body = "It's past your bedtime."
+        let title = "Still awake?"
+        let body = "Stop, drop, and go to bed."
         let identifier = "PersistentReminder"
 //        let timeInterval: TimeInterval = 60.0
         
@@ -194,8 +205,8 @@ class MainViewController: UIViewController {
         
         for i in 1...30 {
             let timeInterval = TimeInterval(i * 120)
-            let newDate = date + timeInterval
-            let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: newDate)
+            let newDate = time + timeInterval
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: newDate)
             let notification = Notification(title: title, body: body, identifier: identifier + String(i), dateMatching: dateComponents)
             notification.createNotification()
         }
@@ -224,16 +235,5 @@ class MainViewController: UIViewController {
         }
         
         return false
-    }
-    
-    func isNotFirstLaunch() -> Bool {
-        let defaults = UserDefaults.standard
-        
-        if let _ = defaults.string(forKey: Constants.Defaults.isNotFirstLaunch) {
-            return true
-        } else {
-            defaults.set(true, forKey: Constants.Defaults.isNotFirstLaunch)
-            return false
-        }
     }
 }

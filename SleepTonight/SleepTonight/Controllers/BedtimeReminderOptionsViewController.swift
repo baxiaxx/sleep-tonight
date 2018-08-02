@@ -9,7 +9,7 @@ import UIKit
 
 class BedtimeReminderOptionsViewController: UIViewController {
     
-    var bedtime: Bedtime?
+    weak var bedtime: Bedtime?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,7 +27,6 @@ class BedtimeReminderOptionsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.tableFooterView = UIView()
     }
     
 }

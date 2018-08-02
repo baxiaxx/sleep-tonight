@@ -21,7 +21,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bedtimeLabel: UILabel!
     
     @IBOutlet weak var reminderView: UIView!
-    @IBOutlet weak var reminderLabel: UILabel!
     @IBOutlet weak var reminderAmountLabel: UILabel!
     
     @IBOutlet weak var sleepButton: UIButton!
@@ -124,7 +123,7 @@ class MainViewController: UIViewController {
         }
         
         let prepTime = String(Int(bedtime.prepTime / 60))
-        reminderAmountLabel.text = "\(prepTime) min"
+        reminderAmountLabel.text = "Bedtime Reminder: \(prepTime) min"
         
         reminderView.backgroundColor = UIColor(white: 1, alpha: 0.1)
         
@@ -141,7 +140,6 @@ class MainViewController: UIViewController {
         
         reminderView.backgroundColor = theme.secondaryColor
         
-        reminderLabel.textColor = theme.secondaryTextColor
         reminderAmountLabel.textColor = theme.secondaryTextColor
         
         sleepButton.backgroundColor = theme.accentColor
@@ -172,7 +170,7 @@ class MainViewController: UIViewController {
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
         let title = "Bedtime"
-        let body = "You should probably go sleep now."
+        let body = "Time to sleep!"
         let identifier = "Bedtime"
         
         let notification = Notification(title: title, body: body, identifier: identifier, dateMatching: dateComponents)

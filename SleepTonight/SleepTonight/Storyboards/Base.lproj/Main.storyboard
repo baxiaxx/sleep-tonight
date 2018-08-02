@@ -36,38 +36,26 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8lQ-jV-e22">
-                                <rect key="frame" x="24" y="274" width="327" height="60"/>
+                                <rect key="frame" x="24" y="274" width="327" height="282"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4j-Xo-1Xh">
-                                        <rect key="frame" x="22" y="20" width="283" height="20.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime Reminder:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-jy-qrT">
-                                                <rect key="frame" x="0.0" y="0.0" width="223" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-BM-HbW">
-                                                <rect key="frame" x="223" y="0.0" width="60" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="Ilf-LB-oyo"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime Reminder: 60 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-BM-HbW">
+                                        <rect key="frame" x="22" y="130" width="283" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="vMN-wV-aPI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="f4j-Xo-1Xh" firstAttribute="centerY" secondItem="8lQ-jV-e22" secondAttribute="centerY" id="AUD-gu-U4y"/>
-                                    <constraint firstItem="f4j-Xo-1Xh" firstAttribute="leading" secondItem="8lQ-jV-e22" secondAttribute="leading" constant="22" id="BsJ-0l-0Ka"/>
-                                    <constraint firstAttribute="trailing" secondItem="f4j-Xo-1Xh" secondAttribute="trailing" constant="22" id="LxD-x8-GJH"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="Rfg-xd-9zB"/>
+                                    <constraint firstItem="3jm-BM-HbW" firstAttribute="leading" secondItem="8lQ-jV-e22" secondAttribute="leading" constant="22" id="20f-Ai-G87"/>
+                                    <constraint firstItem="3jm-BM-HbW" firstAttribute="centerY" secondItem="8lQ-jV-e22" secondAttribute="centerY" id="KHL-P5-uGB"/>
+                                    <constraint firstAttribute="trailing" secondItem="3jm-BM-HbW" secondAttribute="trailing" constant="22" id="YKa-rs-YOb"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
-                                <rect key="frame" x="24" y="374" width="327" height="269"/>
+                                <rect key="frame" x="24" y="596" width="327" height="47"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="I'M GOING TO BED">
@@ -103,7 +91,6 @@
                     <connections>
                         <outlet property="bedtimeLabel" destination="1nw-Vx-a8X" id="ggW-pM-sZn"/>
                         <outlet property="reminderAmountLabel" destination="3jm-BM-HbW" id="gGK-uG-Wq1"/>
-                        <outlet property="reminderLabel" destination="PeV-jy-qrT" id="KB0-KT-EtA"/>
                         <outlet property="reminderView" destination="8lQ-jV-e22" id="du1-jF-sX9"/>
                         <outlet property="sleepButton" destination="Nbf-zT-Ea0" id="xdY-xS-kzD"/>
                     </connections>

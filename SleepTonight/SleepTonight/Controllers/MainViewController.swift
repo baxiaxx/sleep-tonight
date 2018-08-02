@@ -58,6 +58,7 @@ class MainViewController: UIViewController {
         if bedtime.isSleeping {
             sleepButton.setTitle(Constants.ButtonText.afterSleep, for: .normal)
             setTheme(isLight: true)
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         } else {
             sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
             setTheme(isLight: false)

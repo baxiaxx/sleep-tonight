@@ -195,7 +195,6 @@ class MainViewController: UIViewController {
         for i in 1...30 {
             let timeInterval = TimeInterval(i * 120)
             let newDate = date + timeInterval
-            print(newDate)
             let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: newDate)
             let notification = Notification(title: title, body: body, identifier: identifier + String(i), dateMatching: dateComponents)
             notification.createNotification()

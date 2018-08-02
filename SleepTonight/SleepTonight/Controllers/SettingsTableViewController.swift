@@ -22,14 +22,14 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func configureDatePicker() {
-        guard let bedtime = self.bedtime else { return }
-        guard let time = bedtime.time else { return }
+        guard let bedtime = bedtime,
+            let time = bedtime.time else { return }
         bedtimePicker.date = time
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier,
-            let bedtime = self.bedtime else { return }
+            let bedtime = bedtime else { return }
         
         switch identifier {
         case "doneWithSettings":
@@ -41,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
             
         case "displayReminderOptions":
             let destination = segue.destination as! BedtimeReminderOptionsViewController
-            destination.bedtime = self.bedtime
+            destination.bedtime = bedtime
             
         default:
             print("Unexpected segue identifier")

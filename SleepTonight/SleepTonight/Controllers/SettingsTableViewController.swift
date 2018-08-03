@@ -12,15 +12,19 @@ class SettingsTableViewController: UITableViewController {
     weak var bedtime: Bedtime?
     
     var timePicked: Date?
+    var notifChoice: Bool?
     
     @IBOutlet weak var bedtimePicker: UIDatePicker!
+    @IBOutlet weak var notifSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let bedtime = bedtime,
             let time = bedtime.time else { return }
+        
         bedtimePicker.date = time
+        notifSwitch.isOn = bedtime.hasNotifs
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,9 +33,12 @@ class SettingsTableViewController: UITableViewController {
         
         switch identifier {
         case "doneWithSettings":
-            guard let timePicked = timePicked else { return }
-            
-            bedtime.time = timePicked
+            if let timePicked = timePicked {
+                bedtime.time = timePicked
+            }
+            if let notifChoice = notifChoice {
+                bedtime.hasNotifs = notifChoice
+            }
             
             CoreDataHelper.saveBedtime()
             
@@ -46,6 +53,10 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func bedtimePickerValueChanged(_ sender: UIDatePicker) {
         timePicked = sender.date
+    }
+    
+    @IBAction func remindersSwitch(_ sender: UISwitch) {
+        notifChoice = sender.isOn
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {

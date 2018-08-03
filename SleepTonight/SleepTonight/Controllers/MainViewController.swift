@@ -39,7 +39,8 @@ class MainViewController: UIViewController {
             let bedtime = CoreDataHelper.createBedtime()
             bedtime.time = Date()
             bedtime.isSleeping = false
-            bedtime.prepTime = 60.0
+            bedtime.prepTime = 0.0
+            bedtime.hasNotifs = true
             CoreDataHelper.saveBedtime()
         }
     }
@@ -154,7 +155,9 @@ class MainViewController: UIViewController {
         
         setupReminderNotification(bedtime: bedtime)
         setupBedtimeNotification(bedtime: bedtime)
-        setupPersistentNotifications(bedtime: bedtime)
+        if bedtime.hasNotifs {
+            setupPersistentNotifications(bedtime: bedtime)
+        }
         
 //        if !bedtimeIsGreaterThanCurrentTime(bedtime: time) {
 //            return

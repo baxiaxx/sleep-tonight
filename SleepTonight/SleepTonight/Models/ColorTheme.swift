@@ -2,7 +2,7 @@
 //  ColorTheme.swift
 //  SleepTonight
 //
-//  Created by Binjia Chen on 8/1/18.
+//  Created by Selena Sui on 8/1/18.
 //
 
 import Foundation

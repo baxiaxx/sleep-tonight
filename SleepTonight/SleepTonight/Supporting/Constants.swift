@@ -2,7 +2,7 @@
 //  Constants.swift
 //  SleepTonight
 //
-//  Created by Binjia Chen on 7/31/18.
+//  Created by Selena Sui on 7/31/18.
 //
 
 import Foundation

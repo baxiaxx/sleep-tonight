@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SleepTonight
 //
-//  Created by Binjia Chen on 7/23/18.
+//  Created by Selena Sui on 7/23/18.
 //
 
 import UIKit

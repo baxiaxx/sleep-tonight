@@ -2,7 +2,7 @@
 //  Notification.swift
 //  SleepTonight
 //
-//  Created by Binjia Chen on 7/30/18.
+//  Created by Selena Sui on 7/30/18.
 //
 
 import Foundation

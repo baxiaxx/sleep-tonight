@@ -14,7 +14,6 @@ struct Notification {
     let body: String
     let identifier: String
     let dateMatching: DateComponents
-    let timeInterval: TimeInterval
     let trigger: UNNotificationTrigger
     
     init(title: String, body: String, identifier: String, dateMatching: DateComponents) {
@@ -23,20 +22,7 @@ struct Notification {
         self.identifier = identifier
         self.dateMatching = dateMatching
         
-        self.timeInterval = 0
-        
         self.trigger = UNCalendarNotificationTrigger(dateMatching: self.dateMatching, repeats: true)
-    }
-    
-    init(title: String, body: String, identifier: String, timeInterval: TimeInterval) {
-        self.title = title
-        self.body = body
-        self.identifier = identifier
-        self.timeInterval = timeInterval
-        
-        self.dateMatching = DateComponents()
-        
-        self.trigger = UNTimeIntervalNotificationTrigger(timeInterval: self.timeInterval, repeats: true)
     }
     
     func createNotification() {

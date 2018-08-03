@@ -11,7 +11,6 @@ import UserNotifications
 class MainViewController: UIViewController {
     
     var bedtimes = [Bedtime]()
-//    var timer = Timer()
     var isDefaultStatusBar = true
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -103,7 +102,6 @@ class MainViewController: UIViewController {
             setTheme(isLight: true)
             
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//            timer.invalidate()
         } else {
             sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
             setTheme(isLight: false)
@@ -148,24 +146,14 @@ class MainViewController: UIViewController {
     }
     
     func setupNotifications(bedtime: Bedtime) {
-//        guard let time = bedtime.time else { return }
         
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//        timer.invalidate()
         
         setupReminderNotification(bedtime: bedtime)
         setupBedtimeNotification(bedtime: bedtime)
         if bedtime.hasNotifs {
             setupPersistentNotifications(bedtime: bedtime)
         }
-        
-//        if !bedtimeIsGreaterThanCurrentTime(bedtime: time) {
-//            return
-//        }
-//
-//        timer = Timer(fireAt: time, interval: 5.0, target: self, selector: #selector(setupPersistentNotifications), userInfo: nil, repeats: false)
-//        timer.tolerance = 10.0
-//        RunLoop.main.add(timer, forMode: .commonModes)
     }
     
     func setupBedtimeNotification(bedtime: Bedtime) {
@@ -195,47 +183,22 @@ class MainViewController: UIViewController {
         notification.createNotification()
     }
     
-    @objc func setupPersistentNotifications(bedtime: Bedtime) {
+    func setupPersistentNotifications(bedtime: Bedtime) {
         guard let time = bedtime.time else { return }
         
         let title = "Still awake?"
-        let body = "Stop, drop, and go to bed."
+        var body = "Stop, drop, and go to bed."
         let identifier = "PersistentReminder"
-//        let timeInterval: TimeInterval = 60.0
         
-//        let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
-        
-        for i in 1...30 {
+        for i in 1...50 {
+            if i == 50 {
+                body = "LAST REMINDER. Chop chop."
+            }
             let timeInterval = TimeInterval(i * 120)
             let newDate = time + timeInterval
             let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: newDate)
             let notification = Notification(title: title, body: body, identifier: identifier + String(i), dateMatching: dateComponents)
             notification.createNotification()
         }
-    
-//        let notification = Notification(title: title, body: body, identifier: identifier, timeInterval: timeInterval)
-//        notification.createNotification()
-    }
-    
-    func bedtimeIsGreaterThanCurrentTime(bedtime: Date) -> Bool{
-        let cal = Calendar.current
-        let components = cal.dateComponents([.hour, .minute], from: bedtime)
-        
-        let currentDate = Date()
-        let currentComponents = cal.dateComponents([.hour, .minute], from: currentDate)
-        
-        guard let hour = components.hour,
-            let minute = components.minute,
-            let currentHour = currentComponents.hour,
-            let currentMinute = currentComponents.minute else { return false }
-        
-        if hour > currentHour {
-            return true
-        }
-        if hour == currentHour && minute > currentMinute {
-            return true
-        }
-        
-        return false
     }
 }

@@ -13,4 +13,8 @@ struct Constants {
         static let isNotFirstLaunch = "isNotFirstLaunch"
     }
     
+    struct Notifications {
+        static let numberOfPersistents = 50
+    }
+    
 }

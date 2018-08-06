@@ -98,13 +98,17 @@ class MainViewController: UIViewController {
         bedtime.isSleeping = !bedtime.isSleeping
         
         if bedtime.isSleeping {
-            sleepButton.setImage(#imageLiteral(resourceName: "alarm_black"), for: .normal)
-            setTheme(isLight: true)
+            UIView.animate(withDuration: 0.3) {
+                self.sleepButton.setImage(#imageLiteral(resourceName: "alarm_black"), for: .normal)
+                self.setTheme(isLight: true)
+            }
             
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         } else {
-            sleepButton.setImage(#imageLiteral(resourceName: "alarm_red"), for: .normal)
-            setTheme(isLight: false)
+            UIView.animate(withDuration: 0.3) {
+                self.sleepButton.setImage(#imageLiteral(resourceName: "alarm_red"), for: .normal)
+                self.setTheme(isLight: false)
+            }
             
             setupNotifications(bedtime: bedtime)
         }
@@ -188,8 +192,8 @@ class MainViewController: UIViewController {
         var body = "Stop, drop, and go to bed."
         let identifier = "PersistentReminder"
         
-        for i in 1...50 {
-            if i == 50 {
+        for i in 1...Constants.Notifications.numberOfPersistents {
+            if i == Constants.Notifications.numberOfPersistents {
                 body = "LAST REMINDER. Chop chop."
             }
             let timeInterval = TimeInterval(i * 120)

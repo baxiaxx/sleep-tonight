@@ -13,24 +13,17 @@ struct ColorTheme {
     static let dark = ColorTheme(isDefaultStatusBar: true,
                                   backgroundColor: .stMidnightBlue,
                                   primaryTextColor: .stDullBlue,
-                                  secondaryColor: .stGrayBlue,
-                                  secondaryTextColor: .stDarkLavender,
-                                  accentColor: .stDarkMauve)
+                                  accentColor: .stOffWhite)
     
     static let light = ColorTheme(isDefaultStatusBar: false,
                                   backgroundColor: .stSkyBlue,
                                   primaryTextColor: .stNavy,
-                                  secondaryColor: .stWarmBeige,
-                                  secondaryTextColor: .stSoothingBlue,
-                                  accentColor: .stCider)
+                                  accentColor: .stLightGray)
     
     let isDefaultStatusBar: Bool
     let backgroundColor: UIColor
     
     let primaryTextColor: UIColor
-    
-    let secondaryColor: UIColor
-    let secondaryTextColor: UIColor
     
     let accentColor: UIColor
     

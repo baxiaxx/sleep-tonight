@@ -20,14 +20,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIv-WJ-lix">
-                                <rect key="frame" x="24" y="164" width="327" height="100"/>
+                                <rect key="frame" x="24" y="150" width="327" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88:88 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nw-Vx-a8X">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="lfb-sJ-0fQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="64"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="43"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -41,7 +41,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
-                                <rect key="frame" x="76" y="324" width="223" height="223"/>
+                                <rect key="frame" x="69" y="310" width="237" height="237"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Nbf-zT-Ea0" secondAttribute="height" id="jhn-Ly-Aix"/>
@@ -58,7 +58,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LU3-Yh-LWM" secondAttribute="height" id="ak9-D8-8Bq"/>
                                 </constraints>
-                                <state key="normal" image="settings_black"/>
+                                <state key="normal" image="settings_white"/>
                                 <connections>
                                     <segue destination="lg2-zR-q8k" kind="show" identifier="displaySettings" id="GNS-eG-00v"/>
                                 </connections>
@@ -68,11 +68,11 @@
                         <constraints>
                             <constraint firstItem="Nbf-zT-Ea0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="67G-n8-NdZ"/>
                             <constraint firstItem="LU3-Yh-LWM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="D2n-rb-BVO"/>
-                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="LU3-Yh-LWM" secondAttribute="bottom" constant="82" id="EZn-mM-U4d"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="LU3-Yh-LWM" secondAttribute="bottom" constant="68" id="EZn-mM-U4d"/>
                             <constraint firstItem="Nbf-zT-Ea0" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="bottom" constant="60" id="Jiw-Li-fuE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RIv-WJ-lix" secondAttribute="trailing" constant="24" id="LK4-Tq-4JK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LU3-Yh-LWM" secondAttribute="trailing" constant="24" id="Qpx-Kx-39x"/>
-                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="164" id="VUM-dB-3Eq"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="VUM-dB-3Eq"/>
                             <constraint firstItem="RIv-WJ-lix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="gIW-Hv-2Ps"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nbf-zT-Ea0" secondAttribute="bottom" constant="120" id="u8n-f0-bx4"/>
                         </constraints>
@@ -119,6 +119,6 @@
     </scenes>
     <resources>
         <image name="alarm_black" width="120" height="120"/>
-        <image name="settings_black" width="120" height="120"/>
+        <image name="settings_white" width="120" height="120"/>
     </resources>
 </document>

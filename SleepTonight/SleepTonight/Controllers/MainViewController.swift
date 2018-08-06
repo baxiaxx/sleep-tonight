@@ -18,10 +18,6 @@ class MainViewController: UIViewController {
     }
     
     @IBOutlet weak var bedtimeLabel: UILabel!
-    
-    @IBOutlet weak var reminderView: UIView!
-    @IBOutlet weak var reminderAmountLabel: UILabel!
-    
     @IBOutlet weak var sleepButton: UIButton!
     
     override func viewDidLoad() {
@@ -44,10 +40,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
@@ -56,11 +48,11 @@ class MainViewController: UIViewController {
         setupView(bedtime: bedtime)
         
         if bedtime.isSleeping {
-            sleepButton.setTitle(Constants.ButtonText.afterSleep, for: .normal)
+            sleepButton.setImage(#imageLiteral(resourceName: "alarm_black"), for: .normal)
             setTheme(isLight: true)
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         } else {
-            sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
+            sleepButton.setImage(#imageLiteral(resourceName: "alarm_red"), for: .normal)
             setTheme(isLight: false)
             setupNotifications(bedtime: bedtime)
         }
@@ -92,22 +84,24 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func sleepButtonTapped(_ sender: Any) {
+    @IBAction func sleepButtonTapped(_ sender: UIButton) {
         let bedtime = bedtimes[0]
         
         bedtime.isSleeping = !bedtime.isSleeping
         
         if bedtime.isSleeping {
-            sleepButton.setTitle(Constants.ButtonText.afterSleep, for: .normal)
+            sleepButton.setImage(#imageLiteral(resourceName: "alarm_black"), for: .normal)
             setTheme(isLight: true)
             
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         } else {
-            sleepButton.setTitle(Constants.ButtonText.beforeSleep, for: .normal)
+            sleepButton.setImage(#imageLiteral(resourceName: "alarm_red"), for: .normal)
             setTheme(isLight: false)
             
             setupNotifications(bedtime: bedtime)
         }
+        
+        sender.pulse()
     }
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
@@ -118,17 +112,17 @@ class MainViewController: UIViewController {
     func setupView(bedtime: Bedtime) {
         if let date = bedtime.time {
             bedtimeLabel.text = date.convertToString()
+            bedtimeLabel.adjustsFontSizeToFitWidth = true
         } else {
             print("Bedtime not set")
         }
         
-        let prepTime = String(Int(bedtime.prepTime / 60))
-        reminderAmountLabel.text = "Bedtime Reminder: \(prepTime) min"
-        
-        reminderView.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        
-        sleepButton.layer.cornerRadius = 8
-        sleepButton.layer.masksToBounds = true
+        sleepButton.layer.cornerRadius = sleepButton.frame.size.width / 2
+        sleepButton.layer.shadowColor = UIColor.black.cgColor
+        sleepButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        sleepButton.layer.shadowRadius = 3.0
+        sleepButton.layer.shadowOpacity = 0.5
+        sleepButton.layer.masksToBounds = false
     }
     
     func setTheme(isLight: Bool) {
@@ -137,10 +131,6 @@ class MainViewController: UIViewController {
         view.backgroundColor = theme.backgroundColor
         
         bedtimeLabel.textColor = theme.primaryTextColor
-        
-        reminderView.backgroundColor = theme.secondaryColor
-        
-        reminderAmountLabel.textColor = theme.secondaryTextColor
         
         sleepButton.backgroundColor = theme.accentColor
     }

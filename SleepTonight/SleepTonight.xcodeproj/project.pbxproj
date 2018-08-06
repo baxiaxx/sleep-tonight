@@ -24,6 +24,7 @@
 		8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCA9E21067C340002C028 /* MainViewController.swift */; };
 		8FADCAA4210790D30002C028 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FADCAA3210790D30002C028 /* CoreDataHelper.swift */; };
 		8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB83680210797FE00D2184D /* Date+convertToString.swift */; };
+		8FE08C6D2118B4560074B4DE /* UIButton+pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE08C6C2118B4560074B4DE /* UIButton+pulse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		8FADCA9E21067C340002C028 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FADCAA3210790D30002C028 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		8FB83680210797FE00D2184D /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
+		8FE08C6C2118B4560074B4DE /* UIButton+pulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+pulse.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				8FB83680210797FE00D2184D /* Date+convertToString.swift */,
 				8F8606662111129800D606AB /* UIColor+ST.swift */,
+				8FE08C6C2118B4560074B4DE /* UIButton+pulse.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				8FB83681210797FE00D2184D /* Date+convertToString.swift in Sources */,
 				8F6119BA210F76550009EC1C /* Notification.swift in Sources */,
 				8F8DFBEA2109275F00EFA5E9 /* SleepTonight.xcdatamodeld in Sources */,
+				8FE08C6D2118B4560074B4DE /* UIButton+pulse.swift in Sources */,
 				8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */,
 				8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */,
 				8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */,

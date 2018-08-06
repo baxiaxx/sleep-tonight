@@ -32,7 +32,7 @@ class SettingsTableViewController: UITableViewController {
             let bedtime = bedtime else { return }
         
         switch identifier {
-        case "doneWithSettings":
+        case "save":
             if let timePicked = timePicked {
                 bedtime.time = timePicked
             }
@@ -41,6 +41,9 @@ class SettingsTableViewController: UITableViewController {
             }
             
             CoreDataHelper.saveBedtime()
+        
+        case "cancel":
+            print("Cancel settings")
             
         case "displayReminderOptions":
             let destination = segue.destination as! BedtimeReminderOptionsViewController

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,65 +20,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIv-WJ-lix">
-                                <rect key="frame" x="24" y="94" width="327" height="140"/>
+                                <rect key="frame" x="24" y="164" width="327" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88:88 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nw-Vx-a8X">
-                                        <rect key="frame" x="22" y="40" width="283" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="centerY" secondItem="RIv-WJ-lix" secondAttribute="centerY" id="1HD-XD-uDc"/>
-                                    <constraint firstAttribute="trailing" secondItem="1nw-Vx-a8X" secondAttribute="trailing" constant="22" id="2zf-HU-CN1"/>
-                                    <constraint firstAttribute="height" constant="140" id="CJo-M5-DEH"/>
-                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="leading" secondItem="RIv-WJ-lix" secondAttribute="leading" constant="22" id="XDN-en-yT7"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8lQ-jV-e22">
-                                <rect key="frame" x="24" y="274" width="327" height="282"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime Reminder: 60 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-BM-HbW">
-                                        <rect key="frame" x="22" y="130" width="283" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="vMN-wV-aPI"/>
+                                            <constraint firstAttribute="height" constant="100" id="lfb-sJ-0fQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="64"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3jm-BM-HbW" firstAttribute="leading" secondItem="8lQ-jV-e22" secondAttribute="leading" constant="22" id="20f-Ai-G87"/>
-                                    <constraint firstItem="3jm-BM-HbW" firstAttribute="centerY" secondItem="8lQ-jV-e22" secondAttribute="centerY" id="KHL-P5-uGB"/>
-                                    <constraint firstAttribute="trailing" secondItem="3jm-BM-HbW" secondAttribute="trailing" constant="22" id="YKa-rs-YOb"/>
+                                    <constraint firstAttribute="trailing" secondItem="1nw-Vx-a8X" secondAttribute="trailing" id="CHs-WI-YYN"/>
+                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="leading" secondItem="RIv-WJ-lix" secondAttribute="leading" id="c9i-pC-ABj"/>
+                                    <constraint firstAttribute="bottom" secondItem="1nw-Vx-a8X" secondAttribute="bottom" id="hRg-gr-wMR"/>
+                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="top" id="jhF-iR-qIa"/>
+                                    <constraint firstItem="1nw-Vx-a8X" firstAttribute="centerY" secondItem="RIv-WJ-lix" secondAttribute="centerY" id="ngy-nm-ZY1"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
-                                <rect key="frame" x="24" y="596" width="327" height="47"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
+                                <rect key="frame" x="76" y="324" width="223" height="223"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="I'M GOING TO BED">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nbf-zT-Ea0" secondAttribute="height" id="jhn-Ly-Aix"/>
+                                </constraints>
+                                <state key="normal" image="alarm_black">
                                     <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="sleepButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7B-2c-kp6"/>
+                                    <action selector="sleepButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eAf-AU-y3k"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RIv-WJ-lix" secondAttribute="trailing" constant="24" id="8hD-xO-Gbu"/>
-                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="top" secondItem="8lQ-jV-e22" secondAttribute="bottom" constant="40" id="COh-g7-Xcl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nbf-zT-Ea0" secondAttribute="trailing" constant="24" id="EyT-ri-A52"/>
-                            <constraint firstItem="8lQ-jV-e22" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="bottom" constant="40" id="GYd-bf-ElG"/>
-                            <constraint firstItem="8lQ-jV-e22" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="VTi-io-2FT"/>
-                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="W6h-Ke-Z1w"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8lQ-jV-e22" secondAttribute="trailing" constant="24" id="WJG-Zp-aIh"/>
-                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="lxm-L3-YOY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nbf-zT-Ea0" secondAttribute="bottom" constant="24" id="o0f-5q-Xyt"/>
-                            <constraint firstItem="RIv-WJ-lix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="rKu-jL-svS"/>
+                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="67G-n8-NdZ"/>
+                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="bottom" constant="60" id="Jiw-Li-fuE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RIv-WJ-lix" secondAttribute="trailing" constant="24" id="LK4-Tq-4JK"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="VUM-dB-3Eq"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="gIW-Hv-2Ps"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nbf-zT-Ea0" secondAttribute="bottom" constant="120" id="u8n-f0-bx4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -90,14 +74,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bedtimeLabel" destination="1nw-Vx-a8X" id="ggW-pM-sZn"/>
-                        <outlet property="reminderAmountLabel" destination="3jm-BM-HbW" id="gGK-uG-Wq1"/>
-                        <outlet property="reminderView" destination="8lQ-jV-e22" id="du1-jF-sX9"/>
-                        <outlet property="sleepButton" destination="Nbf-zT-Ea0" id="xdY-xS-kzD"/>
+                        <outlet property="sleepButton" destination="Nbf-zT-Ea0" id="7sZ-Vv-T18"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="793"/>
+            <point key="canvasLocation" x="844" y="792.95352323838085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="raf-mN-qiy">
@@ -126,4 +108,7 @@
             <point key="canvasLocation" x="1820" y="793"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm_black" width="120" height="120"/>
+    </resources>
 </document>

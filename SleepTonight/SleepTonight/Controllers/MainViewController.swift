@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
@@ -41,6 +42,8 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
         bedtimes = CoreDataHelper.retrieveBedtimes()
         
         let bedtime = bedtimes[0]
@@ -56,6 +59,11 @@ class MainViewController: UIViewController {
             setTheme(isLight: false)
             setupNotifications(bedtime: bedtime)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func isNotFirstLaunch() -> Bool {

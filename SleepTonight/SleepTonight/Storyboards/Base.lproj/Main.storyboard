@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LU3-Yh-LWM">
-                                <rect key="frame" x="299" y="30" width="52" height="52"/>
+                                <rect key="frame" x="314" y="30" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LU3-Yh-LWM" secondAttribute="height" id="ak9-D8-8Bq"/>
                                 </constraints>
@@ -68,10 +68,10 @@
                         <constraints>
                             <constraint firstItem="Nbf-zT-Ea0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="67G-n8-NdZ"/>
                             <constraint firstItem="LU3-Yh-LWM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="D2n-rb-BVO"/>
-                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="LU3-Yh-LWM" secondAttribute="bottom" constant="68" id="EZn-mM-U4d"/>
+                            <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="LU3-Yh-LWM" secondAttribute="bottom" constant="75" id="EZn-mM-U4d"/>
                             <constraint firstItem="Nbf-zT-Ea0" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="bottom" constant="60" id="Jiw-Li-fuE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RIv-WJ-lix" secondAttribute="trailing" constant="24" id="LK4-Tq-4JK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LU3-Yh-LWM" secondAttribute="trailing" constant="24" id="Qpx-Kx-39x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LU3-Yh-LWM" secondAttribute="trailing" constant="16" id="Qpx-Kx-39x"/>
                             <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="VUM-dB-3Eq"/>
                             <constraint firstItem="RIv-WJ-lix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="gIW-Hv-2Ps"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nbf-zT-Ea0" secondAttribute="bottom" constant="120" id="u8n-f0-bx4"/>

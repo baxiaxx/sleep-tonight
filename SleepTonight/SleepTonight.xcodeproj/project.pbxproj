@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F3E130E2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */; };
 		8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */; };
+		8F408D03211A3B720013AD13 /* UIView+setGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F408D02211A3B720013AD13 /* UIView+setGradient.swift */; };
 		8F6119BA210F76550009EC1C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6119B9210F76550009EC1C /* Notification.swift */; };
 		8F7567BC2108FCF500581DEB /* BedtimeReminderOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7567BB2108FCF500581DEB /* BedtimeReminderOptions.storyboard */; };
 		8F7567BE210914DE00581DEB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		8F3E130D2108F85100AA0126 /* BedtimeReminderOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeReminderOptionsViewController.swift; sourceTree = "<group>"; };
 		8F3E130F2108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeReminderOptionsTableViewCell.swift; sourceTree = "<group>"; };
+		8F408D02211A3B720013AD13 /* UIView+setGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+setGradient.swift"; sourceTree = "<group>"; };
 		8F6119B9210F76550009EC1C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		8F7567BB2108FCF500581DEB /* BedtimeReminderOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BedtimeReminderOptions.storyboard; sourceTree = "<group>"; };
 		8F7567BD210914DE00581DEB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				8FB83680210797FE00D2184D /* Date+convertToString.swift */,
 				8F8606662111129800D606AB /* UIColor+ST.swift */,
 				8FE08C6C2118B4560074B4DE /* UIButton+pulse.swift */,
+				8F408D02211A3B720013AD13 /* UIView+setGradient.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				8F3E13102108F86B00AA0126 /* BedtimeReminderOptionsTableViewCell.swift in Sources */,
 				8FADCA9F21067C340002C028 /* MainViewController.swift in Sources */,
 				8F8FFB8121122138001920A5 /* ColorTheme.swift in Sources */,
+				8F408D03211A3B720013AD13 /* UIView+setGradient.swift in Sources */,
 				8F7567BE210914DE00581DEB /* SettingsTableViewController.swift in Sources */,
 				8FADCA842106427E0002C028 /* AppDelegate.swift in Sources */,
 			);

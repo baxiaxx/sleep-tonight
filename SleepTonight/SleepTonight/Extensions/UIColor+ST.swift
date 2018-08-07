@@ -17,20 +17,28 @@ extension UIColor {
         return UIColor(named: "stDullBlue")!
     }
     
-    static var stMidnightBlue: UIColor {
-        return UIColor(named: "stMidnightBlue")!
+    static var stPurpleBlue: UIColor {
+        return UIColor(named: "stPurpleBlue")!
+    }
+    
+    static var stDarkPurpleBlue: UIColor {
+        return UIColor(named: "stDarkPurpleBlue")!
     }
     
     static var stLightGray: UIColor {
         return UIColor(named: "stLightGray")!
     }
     
-    static var stNavy: UIColor {
-        return UIColor(named: "stNavy")!
+    static var stPaleLavender: UIColor {
+        return UIColor(named: "stPaleLavender")!
     }
     
-    static var stSkyBlue: UIColor {
-        return UIColor(named: "stSkyBlue")!
+    static var stMidnightBlue: UIColor {
+        return UIColor(named: "stMidnightBlue")!
+    }
+    
+    static var stDarkMidnightBlue: UIColor {
+        return UIColor(named: "stDarkMidnightBlue")!
     }
     
 }

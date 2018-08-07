@@ -140,7 +140,7 @@ class MainViewController: UIViewController {
     func setTheme(isLight: Bool) {
         let theme = isLight ? ColorTheme.light : ColorTheme.dark
         
-        view.backgroundColor = theme.backgroundColor
+        self.view.setGradient(theme.darkBackgroundColor, theme.backgroundColor)
         
         bedtimeLabel.textColor = theme.primaryTextColor
         

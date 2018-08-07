@@ -11,20 +11,21 @@ import UIKit
 struct ColorTheme {
     
     static let dark = ColorTheme(isDefaultStatusBar: true,
-                                  backgroundColor: .stMidnightBlue,
+                                  backgroundColor: .stPurpleBlue,
+                                  darkBackgroundColor: .stDarkPurpleBlue,
                                   primaryTextColor: .stDullBlue,
                                   accentColor: .stOffWhite)
     
     static let light = ColorTheme(isDefaultStatusBar: false,
-                                  backgroundColor: .stSkyBlue,
-                                  primaryTextColor: .stNavy,
+                                  backgroundColor: .stMidnightBlue,
+                                  darkBackgroundColor: .stDarkMidnightBlue,
+                                  primaryTextColor: .stPaleLavender,
                                   accentColor: .stLightGray)
     
     let isDefaultStatusBar: Bool
     let backgroundColor: UIColor
-    
+    let darkBackgroundColor: UIColor
     let primaryTextColor: UIColor
-    
     let accentColor: UIColor
     
 }

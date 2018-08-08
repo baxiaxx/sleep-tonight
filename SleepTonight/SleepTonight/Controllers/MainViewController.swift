@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
         if !isNotFirstLaunch() {
             let bedtime = CoreDataHelper.createBedtime()
             bedtime.time = Date()
-            bedtime.isSleeping = false
+            bedtime.isSleeping = true
             bedtime.prepTime = 0.0
             bedtime.hasNotifs = true
             CoreDataHelper.saveBedtime()
@@ -88,7 +88,7 @@ class MainViewController: UIViewController {
             
             destination?.bedtime = bedtime
         default:
-            print("Unexpected segue identifier")
+            ()
         }
     }
     
@@ -125,8 +125,6 @@ class MainViewController: UIViewController {
         if let date = bedtime.time {
             bedtimeLabel.text = date.convertToString()
             bedtimeLabel.adjustsFontSizeToFitWidth = true
-        } else {
-            print("Bedtime not set")
         }
         
         sleepButton.layer.cornerRadius = sleepButton.frame.size.width / 2

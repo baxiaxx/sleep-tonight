@@ -43,14 +43,14 @@ class SettingsTableViewController: UITableViewController {
             CoreDataHelper.saveBedtime()
         
         case "cancel":
-            print("Cancel settings")
+            ()
             
         case "displayReminderOptions":
             let destination = segue.destination as! BedtimeReminderOptionsViewController
             destination.bedtime = bedtime
             
         default:
-            print("Unexpected segue identifier")
+            ()
         }
     }
     

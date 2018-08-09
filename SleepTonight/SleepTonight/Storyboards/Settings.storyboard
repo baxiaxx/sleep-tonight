@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,14 +55,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bedtime Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYt-Mo-Ne2">
-                                                    <rect key="frame" x="16" y="11" width="141" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Before Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYt-Mo-Ne2">
+                                                    <rect key="frame" x="16" y="11" width="196" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RYt-Mo-Ne2" firstAttribute="top" secondItem="d6g-bj-T2h" secondAttribute="top" constant="11" id="Vcp-GX-0pA"/>
+                                                <constraint firstItem="RYt-Mo-Ne2" firstAttribute="leading" secondItem="d6g-bj-T2h" secondAttribute="leading" constant="16" id="e9a-2m-jjH"/>
+                                                <constraint firstAttribute="bottom" secondItem="RYt-Mo-Ne2" secondAttribute="bottom" constant="11" id="yNo-Bh-Qqp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="YyA-K1-cb5" kind="show" identifier="displayReminderOptions" id="4nF-uE-q2n"/>
@@ -80,9 +83,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications After Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbn-AE-HTi">
-                                                    <rect key="frame" x="16" y="6" width="206.5" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications After Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbn-AE-HTi">
+                                                    <rect key="frame" x="16" y="11" width="206.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -95,7 +97,10 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rbn-AE-HTi" secondAttribute="bottom" constant="11" id="GGa-3u-Vkx"/>
                                                 <constraint firstAttribute="bottom" secondItem="HXD-yl-jml" secondAttribute="bottom" constant="6" id="QXw-dc-Pjv"/>
+                                                <constraint firstItem="rbn-AE-HTi" firstAttribute="top" secondItem="czX-Rf-6ms" secondAttribute="top" constant="11" id="Y0u-xA-oF5"/>
+                                                <constraint firstItem="rbn-AE-HTi" firstAttribute="leading" secondItem="czX-Rf-6ms" secondAttribute="leading" constant="16" id="YLJ-0C-POl"/>
                                                 <constraint firstItem="HXD-yl-jml" firstAttribute="top" secondItem="czX-Rf-6ms" secondAttribute="top" constant="6" id="gKA-0d-tKX"/>
                                                 <constraint firstAttribute="trailing" secondItem="HXD-yl-jml" secondAttribute="trailing" constant="16" id="vro-xU-gha"/>
                                             </constraints>

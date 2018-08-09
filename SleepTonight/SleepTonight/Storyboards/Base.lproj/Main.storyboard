@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -41,7 +40,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbf-zT-Ea0">
-                                <rect key="frame" x="69" y="310" width="237" height="237"/>
+                                <rect key="frame" x="70" y="310" width="235" height="235"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.6588235294" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Nbf-zT-Ea0" secondAttribute="height" id="jhn-Ly-Aix"/>
@@ -72,9 +71,10 @@
                             <constraint firstItem="Nbf-zT-Ea0" firstAttribute="top" secondItem="RIv-WJ-lix" secondAttribute="bottom" constant="60" id="Jiw-Li-fuE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RIv-WJ-lix" secondAttribute="trailing" constant="24" id="LK4-Tq-4JK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LU3-Yh-LWM" secondAttribute="trailing" constant="16" id="Qpx-Kx-39x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nbf-zT-Ea0" secondAttribute="trailing" constant="70" id="SvE-eX-DOu"/>
                             <constraint firstItem="RIv-WJ-lix" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="VUM-dB-3Eq"/>
+                            <constraint firstItem="Nbf-zT-Ea0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="fKe-Xv-MWm"/>
                             <constraint firstItem="RIv-WJ-lix" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="gIW-Hv-2Ps"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nbf-zT-Ea0" secondAttribute="bottom" constant="120" id="u8n-f0-bx4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
